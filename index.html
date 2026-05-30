@@ -1004,41 +1004,77 @@ function applyTranslations(){
   document.documentElement.setAttribute('lang', st.lang);
 }
 
-// ── MOBILE AUDIO UNLOCK ──────────────────────────────
+// ── MOBILE AUDIO — ROBUST iOS/Android FIX ────────────
 let _audioUnlocked = false;
+let _audioCtx = null;
+
 function unlockAudio(){
   if(_audioUnlocked) return;
   _audioUnlocked = true;
-  // Unlock AudioContext
+  // Unlock Web Audio API
   try{
-    const ctx = new (window.AudioContext||window.webkitAudioContext)();
-    const buf = ctx.createBuffer(1,1,22050);
-    const src = ctx.createBufferSource();
-    src.buffer=buf; src.connect(ctx.destination); src.start(0);
-    ctx.resume();
+    _audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+    _audioCtx.resume();
+    const buf = _audioCtx.createBuffer(1,1,22050);
+    const src = _audioCtx.createBufferSource();
+    src.buffer=buf; src.connect(_audioCtx.destination); src.start(0);
   }catch(e){}
-  // Unlock speechSynthesis on iOS
+  // Unlock speechSynthesis — must be called in gesture context
   if(window.speechSynthesis){
-    const u=new SpeechSynthesisUtterance('');
-    u.volume=0; u.rate=10;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(' ');
+    u.volume=0; u.rate=10; u.lang='he-IL';
     window.speechSynthesis.speak(u);
+    // Force voices to load
+    window.speechSynthesis.getVoices();
   }
 }
 document.addEventListener('touchstart', unlockAudio, {once:true, passive:true});
 document.addEventListener('click', unlockAudio, {once:true});
 
+// Load voices on iOS (must be called early)
+if(window.speechSynthesis){
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = ()=>{ window.speechSynthesis.getVoices(); };
+}
+
+function fallbackTTS(txt){
+  if(!window.speechSynthesis || !txt) return;
+  // iOS fix: resume if paused/stopped
+  try{ if(speechSynthesis.paused) speechSynthesis.resume(); }catch(e){}
+  speechSynthesis.cancel();
+
+  const langCode = (T[st.lang]||T['he']).voiceLang;
+  const u = new SpeechSynthesisUtterance(txt);
+  u.lang = langCode;
+  u.rate = 0.82;
+  u.pitch = 1.1;
+  u.volume = 1;
+
+  // Pick best matching voice
+  try{
+    const voices = speechSynthesis.getVoices();
+    const langPrefix = langCode.split('-')[0];
+    const match = voices.find(v=>v.lang===langCode)
+                || voices.find(v=>v.lang.startsWith(langPrefix))
+                || voices.find(v=>v.default);
+    if(match) u.voice = match;
+  }catch(e){}
+
+  // iOS workaround: delay slightly to avoid race condition
+  setTimeout(()=>{
+    try{ speechSynthesis.speak(u); }catch(e){}
+  }, 50);
+}
+
+function speakText(txt){
+  if(!txt) return;
+  fallbackTTS(txt);
+}
 function startKid(){
   st.name=document.getElementById('name-input').value.trim()||'חבר';
   applyTranslations();
   goTo('screen-s1');
-}
-
-function speakText(txt){
-  if(!window.speechSynthesis) return;
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(txt.replace(/[^\u0000-\u05FF\u0600-\u06FF\u0400-\u04FF\w\s.,?!]/g,' '));
-  u.lang=(T[st.lang]||T['he']).voiceLang; u.rate=.82; u.pitch=1.1;
-  speechSynthesis.speak(u);
 }
 
 function say(id){
@@ -1619,7 +1655,7 @@ function toggleVoiceMode() {
 }
 
 // Patch speakText to check recordings first
-const _tts = speakText;
+const _tts = fallbackTTS;
 speakText = function(txt) {
   if (useRecordings) {
     // check answer key
