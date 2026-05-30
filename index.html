@@ -380,13 +380,13 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
     </div>
     <div class="s-canvas">
       <div class="emoji-row" id="mood-row">
-        <button class="e-btn" data-v="שָׂמֵחַ" onclick="pE(this,'s1')" data-speak="שָׂמֵחַ מְאֹד">😄<span class="e-lbl">שָׂמֵחַ</span></button>
-        <button class="e-btn" data-v="בְּסֵדֶר" onclick="pE(this,'s1')" data-speak="בְּסֵדֶר">🙂<span class="e-lbl">בְּסֵדֶר</span></button>
-        <button class="e-btn" data-v="כָּכָה כָּכָה" onclick="pE(this,'s1')" data-speak="כָּכָה כָּכָה">😐<span class="e-lbl">כָּכָה</span></button>
-        <button class="e-btn" data-v="עָצוּב" onclick="pE(this,'s1')" data-speak="עָצוּב">😔<span class="e-lbl">עָצוּב</span></button>
-        <button class="e-btn" data-v="הָיָה קָשֶׁה" onclick="pE(this,'s1')" data-speak="הָיָה קָשֶׁה">😣<span class="e-lbl">קָשֶׁה</span></button>
+        <button class="e-btn" data-key="s1_0" onclick="pE(this,'s1')">😄<span class="e-lbl"></span></button>
+        <button class="e-btn" data-key="s1_1" onclick="pE(this,'s1')">🙂<span class="e-lbl"></span></button>
+        <button class="e-btn" data-key="s1_2" onclick="pE(this,'s1')">😐<span class="e-lbl"></span></button>
+        <button class="e-btn" data-key="s1_3" onclick="pE(this,'s1')">😔<span class="e-lbl"></span></button>
+        <button class="e-btn" data-key="s1_4" onclick="pE(this,'s1')">😣<span class="e-lbl"></span></button>
       </div>
-      <button class="nx-btn" id="nx1" onclick="celebrate(1,'screen-s2')">הַבָּא ←</button>
+      <button class="nx-btn" id="nx1" onclick="celebrate(1,'screen-s2')" data-key="btn-next"></button>
     </div>
   </div>
 </div>
@@ -408,14 +408,14 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
     </div>
     <div class="s-canvas">
       <div class="c-grid">
-        <button class="c-card" data-v="רַצְתִּי וְשִׂיחַקְתִּי" onclick="pC(this,'s2')" data-speak="רַצְתִּי וְשִׂיחַקְתִּי בַּחוּץ"><span class="c-icon">🏃</span><span class="c-lbl">רַצְתִּי וְשִׂיחַקְתִּי</span></button>
-        <button class="c-card" data-v="אָכַלְתִּי" onclick="pC(this,'s2')" data-speak="אָכַלְתִּי אֲרוּחָה"><span class="c-icon">🥪</span><span class="c-lbl">אָכַלְתִּי</span></button>
-        <button class="c-card" data-v="יָשַׁבְתִּי לְבַד" onclick="pC(this,'s2')" data-speak="יָשַׁבְתִּי לְבַד בְּשֶׁקֶט"><span class="c-icon">🧘</span><span class="c-lbl">יָשַׁבְתִּי לְבַד</span></button>
-        <button class="c-card" data-v="דִּבַּרְתִּי עִם חֲבֵרִים" onclick="pC(this,'s2')" data-speak="דִּבַּרְתִּי עִם חֲבֵרִים"><span class="c-icon">💬</span><span class="c-lbl">דִּבַּרְתִּי עִם חֲבֵרִים</span></button>
-        <button class="c-card" data-v="קָרָאתִי" onclick="pC(this,'s2')" data-speak="קָרָאתִי סֵפֶר"><span class="c-icon">📖</span><span class="c-lbl">קָרָאתִי</span></button>
-        <button class="c-card" data-v="קָרָה מַשֶּׁהוּ" onclick="pC(this,'s2')" data-speak="קָרָה מַשֶּׁהוּ מְיֻחָד"><span class="c-icon">⚡</span><span class="c-lbl">קָרָה מַשֶּׁהוּ</span></button>
+        <button class="c-card" data-key="s2_0" onclick="pC(this,'s2')"><span class="c-icon">🏃</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_1" onclick="pC(this,'s2')"><span class="c-icon">🥪</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_2" onclick="pC(this,'s2')"><span class="c-icon">🧘</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_3" onclick="pC(this,'s2')"><span class="c-icon">💬</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_4" onclick="pC(this,'s2')"><span class="c-icon">📖</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_5" onclick="pC(this,'s2')"><span class="c-icon">⚡</span><span class="c-lbl"></span></button>
       </div>
-      <button class="nx-btn" id="nx2" onclick="celebrate(2,'screen-s3')">הַבָּא ←</button>
+      <button class="nx-btn" id="nx2" onclick="celebrate(2,'screen-s3')" data-key="btn-next"></button>
     </div>
   </div>
 </div>
@@ -437,14 +437,14 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
     </div>
     <div class="s-canvas">
       <div class="c-grid">
-        <button class="c-card" data-v="הָיָה כֵּיף" onclick="pC(this,'s3')" data-speak="הָיָה כֵּיף וּמְעַנְיֵן"><span class="c-icon">✨</span><span class="c-lbl">הָיָה כֵּיף</span></button>
-        <button class="c-card" data-v="הָיָה קָשֶׁה" onclick="pC(this,'s3')" data-speak="הָיָה קָשֶׁה לִי"><span class="c-icon">🤯</span><span class="c-lbl">הָיָה קָשֶׁה</span></button>
-        <button class="c-card" data-v="הִצְלַחְתִּי" onclick="pC(this,'s3')" data-speak="הִצְלַחְתִּי בַּשִּׁעוּר"><span class="c-icon">🌟</span><span class="c-lbl">הִצְלַחְתִּי!</span></button>
-        <button class="c-card" data-v="לֹא הֵבַנְתִּי" onclick="pC(this,'s3')" data-speak="לֹא הֵבַנְתִּי"><span class="c-icon">🤔</span><span class="c-lbl">לֹא הֵבַנְתִּי</span></button>
-        <button class="c-card" data-v="הָיִיתִי עָיֵף" onclick="pC(this,'s3')" data-speak="הָיִיתִי עָיֵף מְאֹד"><span class="c-icon">😴</span><span class="c-lbl">הָיִיתִי עָיֵף</span></button>
-        <button class="c-card" data-v="בְּסֵדֶר" onclick="pC(this,'s3')" data-speak="הָיָה בְּסֵדֶר"><span class="c-icon">👍</span><span class="c-lbl">בְּסֵדֶר</span></button>
+        <button class="c-card" data-key="s3_0" onclick="pC(this,'s3')"><span class="c-icon">✨</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s3_1" onclick="pC(this,'s3')"><span class="c-icon">🤯</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s3_2" onclick="pC(this,'s3')"><span class="c-icon">🌟</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s3_3" onclick="pC(this,'s3')"><span class="c-icon">🤔</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s3_4" onclick="pC(this,'s3')"><span class="c-icon">😴</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s3_5" onclick="pC(this,'s3')"><span class="c-icon">👍</span><span class="c-lbl"></span></button>
       </div>
-      <button class="nx-btn" id="nx3" onclick="celebrate(3,'screen-s4')">הַבָּא ←</button>
+      <button class="nx-btn" id="nx3" onclick="celebrate(3,'screen-s4')" data-key="btn-next"></button>
     </div>
   </div>
 </div>
@@ -465,16 +465,16 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
       <button class="speak-btn" onclick="say('q4')">🔊 <span id="lbl-hear4"></span></button>
     </div>
     <div class="s-canvas">
-      <p style="font-size:12px;font-weight:700;color:rgba(0,0,0,.38);margin-bottom:12px;align-self:flex-start" id="multi-hint">אֶפְשָׁר לִבְחוֹר כַּמָּה</p>
+      <p style="font-size:12px;font-weight:700;color:rgba(0,0,0,.38);margin-bottom:12px;align-self:flex-start" id="multi-hint"></p>
       <div class="c-grid">
-        <button class="c-card" data-v="חָבֵר טוֹב" onclick="pM(this)" data-speak="שִׂיחַקְתִּי עִם חָבֵר טוֹב"><span class="c-icon">🤝</span><span class="c-lbl">חָבֵר טוֹב</span></button>
-        <button class="c-card" data-v="עִם כּוּלָּם" onclick="pM(this)" data-speak="שִׂיחַקְתִּי עִם כּוּלָּם"><span class="c-icon">🎉</span><span class="c-lbl">עִם כּוּלָּם</span></button>
-        <button class="c-card" data-v="עָדַפְתִּי לְבַד" onclick="pM(this)" data-speak="עָדַפְתִּי לִשְׂחֹק לְבַד"><span class="c-icon">🧩</span><span class="c-lbl">עָדַפְתִּי לְבַד</span></button>
-        <button class="c-card" data-v="כָּעַסְתִּי" onclick="pM(this)" data-speak="כָּעַסְתִּי עַל מִישֶׁהוּ"><span class="c-icon">😤</span><span class="c-lbl">כָּעַסְתִּי</span></button>
-        <button class="c-card" data-v="לֹא מָצָאתִי עִם מִי לִשְׂחֹק" onclick="pM(this)" data-speak="לֹא מָצָאתִי עִם מִי לִשְׂחֹק"><span class="c-icon">😶</span><span class="c-lbl">לֹא מָצָאתִי עִם מִי לִשְׂחֹק</span></button>
-        <button class="c-card" data-v="הָיָה כֵּיף" onclick="pM(this)" data-speak="הָיָה כֵּיף מְאֹד"><span class="c-icon">😄</span><span class="c-lbl">הָיָה כֵּיף!</span></button>
+        <button class="c-card" data-key="s4_0" onclick="pM(this)"><span class="c-icon">🤝</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s4_1" onclick="pM(this)"><span class="c-icon">🎉</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s4_2" onclick="pM(this)"><span class="c-icon">🧩</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s4_3" onclick="pM(this)"><span class="c-icon">😤</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s4_4" onclick="pM(this)"><span class="c-icon">😶</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s4_5" onclick="pM(this)"><span class="c-icon">😄</span><span class="c-lbl"></span></button>
       </div>
-      <button class="nx-btn show" id="nx4" onclick="celebrate(4,'screen-s5')">הַבָּא ←</button>
+      <button class="nx-btn show" id="nx4" onclick="celebrate(4,'screen-s5')" data-key="btn-next"></button>
     </div>
   </div>
 </div>
@@ -496,12 +496,12 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
     </div>
     <div class="s-canvas">
       <div class="st-grid">
-        <button class="st-card sc1" data-v="קָרָה מַשֶּׁהוּ מְגַנִּיב" onclick="pS(this)" data-speak="קָרָה מַשֶּׁהוּ מְגַנִּיב הַיּוֹם"><span class="st-icon">⭐</span><span class="st-lbl">קָרָה מַשֶּׁהוּ מְגַנִּיב!</span></button>
-        <button class="st-card sc2" data-v="קָרָה מַשֶּׁהוּ עָצוּב" onclick="pS(this)" data-speak="קָרָה מַשֶּׁהוּ עָצוּב"><span class="st-icon">💙</span><span class="st-lbl">קָרָה מַשֶּׁהוּ עָצוּב</span></button>
-        <button class="st-card sc3" data-v="הָיָה הֲכִי כֵּיף לִשְׂחֹק" onclick="pS(this)" data-speak="הָיָה הֲכִי כֵּיף לִשְׂחֹק הַיּוֹם"><span class="st-icon">🎯</span><span class="st-lbl">הָיָה הֲכִי כֵּיף לִשְׂחֹק</span></button>
-        <button class="st-card sc4" data-v="הַכֹּל בְּסֵדֶר" onclick="pS(this)" data-speak="הַכֹּל בְּסֵדֶר, יוֹם רָגִיל"><span class="st-icon">✅</span><span class="st-lbl">הַכֹּל בְּסֵדֶר</span></button>
+        <button class="st-card sc1" data-key="s5_0" onclick="pS(this)"><span class="st-icon">⭐</span><span class="st-lbl"></span></button>
+        <button class="st-card sc2" data-key="s5_1" onclick="pS(this)"><span class="st-icon">💙</span><span class="st-lbl"></span></button>
+        <button class="st-card sc3" data-key="s5_2" onclick="pS(this)"><span class="st-icon">🎯</span><span class="st-lbl"></span></button>
+        <button class="st-card sc4" data-key="s5_3" onclick="pS(this)"><span class="st-icon">✅</span><span class="st-lbl"></span></button>
       </div>
-      <button class="nx-btn" id="nx5" onclick="finish()">סִיּוּם — שְׁלַח לְהוֹרֶה 🎉</button>
+      <button class="nx-btn" id="nx5" onclick="finish()" data-key="btn-finish"></button>
     </div>
   </div>
 </div>
@@ -563,8 +563,8 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
 <!-- DONE -->
 <div class="screen" id="screen-done">
   <div class="done-burst">🎊</div>
-  <div class="done-h">כָּל הַכָּבוֹד!</div>
-  <p class="done-sub">שָׁלַחְתִּי לְאַמָּא וְאַבָּא אֶת סִיכּוּם הַיּוֹם שֶׁלְּךָ.<br>עַכְשָׁו תּוּכְלוּ לְדַבֵּר עַל זֶה יַחַד.</p>
+  <div class="done-h" id="done-h">כָּל הַכָּבוֹד!</div>
+  <p class="done-sub"><span id="done-sub-text">שָׁלַחְתִּי לְאַמָּא וְאַבָּא אֶת סִיכּוּם הַיּוֹם שֶׁלְּךָ.</span></p>
   <button class="cta cta-parent" style="max-width:280px" onclick="showParent()">אֲנִי הוֹרֶה — רְאֵה מַה הַיֶּלֶד סִיפֵּר</button>
 </div>
 
@@ -641,6 +641,56 @@ const T={
         {e:'🎊',t:'מַה מְגַנִּיב!',s:'תַּחֲנָה 4 — עוֹד תַּחֲנָה אַחַת וְסִיַּמְתְּ! 🎊'},
       ]
     },
+    answers:{
+      s1:[
+        {lbl:'שָׂמֵחַ',speak:'שָׂמֵחַ מְאֹד',val:'שָׂמֵחַ'},
+        {lbl:'בְּסֵדֶר',speak:'בְּסֵדֶר',val:'בְּסֵדֶר'},
+        {lbl:'כָּכָה',speak:'כָּכָה כָּכָה',val:'כָּכָה כָּכָה'},
+        {lbl:'עָצוּב',speak:'עָצוּב',val:'עָצוּב'},
+        {lbl:'קָשֶׁה',speak:'הָיָה קָשֶׁה',val:'הָיָה קָשֶׁה'},
+      ],
+      s2:[
+        {lbl:'רַצְתִּי וְשִׂיחַקְתִּי',speak:'רַצְתִּי וְשִׂיחַקְתִּי',val:'רַצְתִּי וְשִׂיחַקְתִּי'},
+        {lbl:'אָכַלְתִּי',speak:'אָכַלְתִּי אֲרוּחָה',val:'אָכַלְתִּי'},
+        {lbl:'יָשַׁבְתִּי לְבַד',speak:'יָשַׁבְתִּי לְבַד',val:'יָשַׁבְתִּי לְבַד'},
+        {lbl:'דִּבַּרְתִּי עִם חֲבֵרִים',speak:'דִּבַּרְתִּי עִם חֲבֵרִים',val:'דִּבַּרְתִּי עִם חֲבֵרִים'},
+        {lbl:'קָרָאתִי',speak:'קָרָאתִי סֵפֶר',val:'קָרָאתִי'},
+        {lbl:'קָרָה מַשֶּׁהוּ',speak:'קָרָה מַשֶּׁהוּ מְיֻחָד',val:'קָרָה מַשֶּׁהוּ'},
+      ],
+      s3:[
+        {lbl:'הָיָה כֵּיף',speak:'הָיָה כֵּיף',val:'הָיָה כֵּיף'},
+        {lbl:'הָיָה קָשֶׁה',speak:'הָיָה קָשֶׁה',val:'הָיָה קָשֶׁה'},
+        {lbl:'הִצְלַחְתִּי!',speak:'הִצְלַחְתִּי',val:'הִצְלַחְתִּי'},
+        {lbl:'לֹא הֵבַנְתִּי',speak:'לֹא הֵבַנְתִּי',val:'לֹא הֵבַנְתִּי'},
+        {lbl:'הָיִיתִי עָיֵף',speak:'הָיִיתִי עָיֵף',val:'הָיִיתִי עָיֵף'},
+        {lbl:'בְּסֵדֶר',speak:'הָיָה בְּסֵדֶר',val:'בְּסֵדֶר'},
+      ],
+      s4:[
+        {lbl:'חָבֵר טוֹב',speak:'שִׂיחַקְתִּי עִם חָבֵר טוֹב',val:'חָבֵר טוֹב'},
+        {lbl:'עִם כּוּלָּם',speak:'שִׂיחַקְתִּי עִם כּוּלָּם',val:'עִם כּוּלָּם'},
+        {lbl:'עָדַפְתִּי לְבַד',speak:'עָדַפְתִּי לְבַד',val:'עָדַפְתִּי לְבַד'},
+        {lbl:'כָּעַסְתִּי',speak:'כָּעַסְתִּי',val:'כָּעַסְתִּי'},
+        {lbl:'לֹא מָצָאתִי עִם מִי',speak:'לֹא מָצָאתִי עִם מִי לִשְׂחֹק',val:'לֹא מָצָאתִי עִם מִי לִשְׂחֹק'},
+        {lbl:'הָיָה כֵּיף!',speak:'הָיָה כֵּיף מְאֹד',val:'הָיָה כֵּיף'},
+      ],
+      s5:[
+        {lbl:'קָרָה מַשֶּׁהוּ מְגַנִּיב!',speak:'קָרָה מַשֶּׁהוּ מְגַנִּיב',val:'קָרָה מַשֶּׁהוּ מְגַנִּיב'},
+        {lbl:'קָרָה מַשֶּׁהוּ עָצוּב',speak:'קָרָה מַשֶּׁהוּ עָצוּב',val:'קָרָה מַשֶּׁהוּ עָצוּב'},
+        {lbl:'הָיָה הֲכִי כֵּיף לִשְׂחֹק',speak:'הָיָה הֲכִי כֵּיף לִשְׂחֹק',val:'הָיָה הֲכִי כֵּיף לִשְׂחֹק'},
+        {lbl:'הַכֹּל בְּסֵדֶר',speak:'הַכֹּל בְּסֵדֶר',val:'הַכֹּל בְּסֵדֶר'},
+      ]
+    },
+    ui:{
+      next:'הַבָּא ←', finish:'סִיּוּם 🎉', multiHint:'אֶפְשָׁר לִבְחוֹר כַּמָּה',
+      btnKid:'אֲנִי הַיֶּלֶד — מַתְחִילִים', btnParent:'אֲנִי הוֹרֶה — רְאֵה סִיכּוּם', btnVoice:'🎙️ הַקְלֵט קוֹל הוֹרֶה',
+      headline:'בְּלִי לְדַבֵּר.',subline:'מִסְגֶּרֶת בְּטוּחָה לְיַלָדִים לְשַׁתֵּף הוֹרִים',
+      lblWhy:'לָמָּה DayLink?',lblAge:'כַּמָּה שָׁנִים יֵשׁ לְךָ?',lblGender:'אַתָּה אוֹ אַתְּ?',lblName:'מַה שִׁמְךָ?',
+      genderM:'👦 זָכָר',genderF:'👧 נְקֵבָה',
+      vp1:'<strong>מַרְגִּישׁ כְּמוֹ מִשְׂחָק</strong> — בְּחִירוֹת וְאֶמוֹג\'ִי, בְּלִי לִכְתּוֹב מִלָּה.',
+      vp2:'<strong>מוּתְאָם לַסְּפֶקְטְרוּם וְ-ADHD</strong> — שְׁאֵלוֹת קוֹנְקְרֵטִיּוֹת וְצְפוּיוֹת.',
+      vp3:'<strong>הַהוֹרֶה מְקַבֵּל שְׁאֵלוֹת שִׂיחָה</strong> — שֶׁנִּוְצְרוֹת לְפִי תְּשׁוּבוֹת הַיֶּלֶד.',
+      namePlaceholder:'נוֹעָה, יוֹסִי, רִינָה...',ageLabels:['גַּן|3–5','א–ג|6–8','ד–ו|9–12'],done:'כָּל הַכָּבוֹד!',doneSub:'שָׁלַחְתִּי לְאַמָּא וְאַבָּא אֶת סִיכּוּם הַיּוֹם שֶׁלְּךָ.'
+    },
     voiceLang:'he-IL'
   },
   ar:{
@@ -675,6 +725,21 @@ const T={
         {e:'🎊',t:'ممتاز!',s:'محطة 4 — محطة واحدة بعدها تنتهي! 🎊'},
       ]
     },
+    answers:{
+      s1:[{lbl:'سعيد',speak:'كنت سعيداً',val:'سعيد'},{lbl:'بخير',speak:'كنت بخير',val:'بخير'},{lbl:'عادي',speak:'عادي',val:'عادي'},{lbl:'حزين',speak:'كنت حزيناً',val:'حزين'},{lbl:'صعب',speak:'كان صعباً',val:'صعب'}],
+      s2:[{lbl:'ركضت ولعبت',speak:'ركضت ولعبت',val:'ركضت ولعبت'},{lbl:'أكلت',speak:'أكلت',val:'أكلت'},{lbl:'جلست وحدي',speak:'جلست وحدي',val:'جلست وحدي'},{lbl:'تكلمت مع أصدقاء',speak:'تكلمت مع أصدقاء',val:'تكلمت مع أصدقاء'},{lbl:'قرأت',speak:'قرأت كتاباً',val:'قرأت'},{lbl:'حدث شيء',speak:'حدث شيء',val:'حدث شيء'}],
+      s3:[{lbl:'كان ممتعاً',speak:'كان ممتعاً',val:'كان ممتعاً'},{lbl:'كان صعباً',speak:'كان صعباً',val:'كان صعباً'},{lbl:'نجحت!',speak:'نجحت',val:'نجحت'},{lbl:'ما فهمت',speak:'لم أفهم',val:'ما فهمت'},{lbl:'كنت متعباً',speak:'كنت متعباً',val:'كنت متعباً'},{lbl:'بخير',speak:'كان بخير',val:'بخير'}],
+      s4:[{lbl:'صديق',speak:'لعبت مع صديق',val:'صديق'},{lbl:'مع الجميع',speak:'لعبت مع الجميع',val:'مع الجميع'},{lbl:'وحدي',speak:'فضلت اللعب وحدي',val:'وحدي'},{lbl:'زعلت',speak:'زعلت',val:'زعلت'},{lbl:'ما لقيت أحد',speak:'لم أجد أحداً',val:'ما لقيت أحد'},{lbl:'كان ممتعاً!',speak:'كان ممتعاً جداً',val:'كان ممتعاً'}],
+      s5:[{lbl:'شيء رائع!',speak:'حدث شيء رائع',val:'شيء رائع'},{lbl:'شيء حزين',speak:'حدث شيء حزين',val:'شيء حزين'},{lbl:'أكثر شيء ممتع',speak:'كان أكثر شيء ممتعاً',val:'أكثر شيء ممتع'},{lbl:'كل شيء بخير',speak:'كل شيء بخير',val:'كل شيء بخير'}]
+    },
+    ui:{next:'التالي ←',finish:'انتهينا 🎉',multiHint:'يمكنك اختيار أكثر من واحد',btnKid:'أنا الطفل — نبدأ',btnParent:'أنا الوالد — رؤية الملخص',btnVoice:'🎙️ تسجيل صوت الوالد',
+      headline:'بدون كلام.',subline:'مساحة آمنة للأطفال لمشاركة يومهم مع الوالدين',
+      lblWhy:'لماذا DayLink؟',lblAge:'كم عمرك؟',lblGender:'أنت ولد أم بنت؟',lblName:'ما اسمك؟',
+      genderM:'👦 ولد',genderF:'👧 بنت',
+      vp1:'<strong>يبدو كلعبة</strong> — اختيارات وإيموجي، بدون كتابة.',
+      vp2:'<strong>مناسب لطيف التوحد وADHD</strong> — أسئلة واضحة ومتوقعة.',
+      vp3:'<strong>الوالد يحصل على أسئلة للحوار</strong> — تُنشأ حسب إجابات الطفل.',
+      namePlaceholder:'نور، يوسف، رنا...',ageLabels:['روضة|3–5','1–3|6–8','4–6|9–12'],done:'أحسنت!',doneSub:'أرسلت لأمك وأبوك ملخص يومك.'},
     voiceLang:'ar-SA'
   },
   ru:{
@@ -709,6 +774,21 @@ const T={
         {e:'🎊',t:'Супер!',s:'Станция 4 — ещё одна и готово! 🎊'},
       ]
     },
+    answers:{
+      s1:[{lbl:'Радостный',speak:'Я был радостный',val:'Радостный'},{lbl:'Нормально',speak:'Было нормально',val:'Нормально'},{lbl:'Так себе',speak:'Так себе',val:'Так себе'},{lbl:'Грустный',speak:'Я был грустный',val:'Грустный'},{lbl:'Трудно',speak:'Было трудно',val:'Трудно'}],
+      s2:[{lbl:'Бегал и играл',speak:'Я бегал и играл',val:'Бегал и играл'},{lbl:'Ел',speak:'Я ел обед',val:'Ел'},{lbl:'Сидел один',speak:'Я сидел один',val:'Сидел один'},{lbl:'Разговаривал',speak:'Я разговаривал с друзьями',val:'Разговаривал с друзьями'},{lbl:'Читал',speak:'Я читал книгу',val:'Читал'},{lbl:'Кое-что случилось',speak:'Кое-что случилось',val:'Кое-что случилось'}],
+      s3:[{lbl:'Было интересно',speak:'Было интересно',val:'Было интересно'},{lbl:'Было трудно',speak:'Было трудно',val:'Было трудно'},{lbl:'Получилось!',speak:'У меня получилось',val:'Получилось'},{lbl:'Не понял',speak:'Я не понял',val:'Не понял'},{lbl:'Устал',speak:'Я устал',val:'Устал'},{lbl:'Нормально',speak:'Было нормально',val:'Нормально'}],
+      s4:[{lbl:'Друг',speak:'Я играл с другом',val:'Друг'},{lbl:'Все',speak:'Я играл со всеми',val:'Все'},{lbl:'Один',speak:'Я предпочёл играть один',val:'Один'},{lbl:'Рассердился',speak:'Я рассердился',val:'Рассердился'},{lbl:'Никого не нашёл',speak:'Не нашёл с кем играть',val:'Никого не нашёл'},{lbl:'Было весело!',speak:'Было очень весело',val:'Было весело'}],
+      s5:[{lbl:'Что-то классное!',speak:'Случилось что-то классное',val:'Что-то классное'},{lbl:'Что-то грустное',speak:'Случилось что-то грустное',val:'Что-то грустное'},{lbl:'Самое весёлое',speak:'Было самое весёлое',val:'Самое весёлое'},{lbl:'Всё хорошо',speak:'Всё хорошо',val:'Всё хорошо'}]
+    },
+    ui:{next:'Далее ←',finish:'Готово 🎉',multiHint:'Можно выбрать несколько',btnKid:'Я ребёнок — начинаем',btnParent:'Я родитель — смотреть итоги',btnVoice:'🎙️ Записать голос',
+      headline:'Без слов.',subline:'Безопасная среда для детей поделиться своим днём с родителями',
+      lblWhy:'Почему DayLink?',lblAge:'Сколько тебе лет?',lblGender:'Ты мальчик или девочка?',lblName:'Как тебя зовут?',
+      genderM:'👦 Мальчик',genderF:'👧 Девочка',
+      vp1:'<strong>Похоже на игру</strong> — выборы и эмодзи, без письма.',
+      vp2:'<strong>Подходит для аутизма и ADHD</strong> — конкретные и предсказуемые вопросы.',
+      vp3:'<strong>Родитель получает вопросы для разговора</strong> — созданные по ответам ребёнка.',
+      namePlaceholder:'Нoa, Йоси, Рина...',ageLabels:['Сад|3–5','1–3 кл.|6–8','4–6 кл.|9–12'],done:'Молодец!',doneSub:'Я отправил маме и папе итог твоего дня.'},
     voiceLang:'ru-RU'
   },
   en:{
@@ -743,6 +823,21 @@ const T={
         {e:'🎊',t:'Amazing!',s:'Station 4 — just one more to go! 🎊'},
       ]
     },
+    answers:{
+      s1:[{lbl:'Happy',speak:'I was very happy',val:'Happy'},{lbl:'OK',speak:'I was OK',val:'OK'},{lbl:'So-so',speak:'So-so',val:'So-so'},{lbl:'Sad',speak:'I was sad',val:'Sad'},{lbl:'Hard',speak:'It was hard',val:'Hard'}],
+      s2:[{lbl:'I ran & played',speak:'I ran and played',val:'I ran and played'},{lbl:'I ate',speak:'I ate lunch',val:'I ate'},{lbl:'I sat alone',speak:'I sat alone',val:'I sat alone'},{lbl:'Talked with friends',speak:'I talked with friends',val:'Talked with friends'},{lbl:'I read',speak:'I read a book',val:'I read'},{lbl:'Something happened',speak:'Something happened',val:'Something happened'}],
+      s3:[{lbl:'It was fun',speak:'It was fun',val:'It was fun'},{lbl:'It was hard',speak:'It was hard',val:'It was hard'},{lbl:'I did it!',speak:'I succeeded',val:'I succeeded'},{lbl:"Didn't get it",speak:"I didn't understand",val:"Didn't understand"},{lbl:'I was tired',speak:'I was tired',val:'I was tired'},{lbl:'OK',speak:'It was OK',val:'OK'}],
+      s4:[{lbl:'Good friend',speak:'I played with a good friend',val:'Good friend'},{lbl:'Everyone',speak:'I played with everyone',val:'Everyone'},{lbl:'I preferred alone',speak:'I preferred to play alone',val:'Preferred alone'},{lbl:'Got angry',speak:'I got angry',val:'Got angry'},{lbl:"Couldn't find anyone",speak:"I couldn't find anyone",val:"Couldn't find anyone"},{lbl:'It was fun!',speak:'It was so much fun',val:'It was fun'}],
+      s5:[{lbl:'Something cool!',speak:'Something cool happened',val:'Something cool'},{lbl:'Something sad',speak:'Something sad happened',val:'Something sad'},{lbl:'Most fun ever',speak:'It was the most fun',val:'Most fun'},{lbl:'All good',speak:'Everything is fine',val:'All good'}]
+    },
+    ui:{next:'Next ←',finish:'Done 🎉',multiHint:'You can choose more than one',btnKid:'I am the child — Start',btnParent:'I am the parent — See summary',btnVoice:'🎙️ Record parent voice',
+      headline:'No words needed.',subline:'A safe space for kids to share their day with parents',
+      lblWhy:'Why DayLink?',lblAge:'How old are you?',lblGender:'Are you a boy or girl?',lblName:"What's your name?",
+      genderM:'👦 Boy',genderF:'👧 Girl',
+      vp1:'<strong>Feels like a game</strong> — choices and emoji, no writing needed.',
+      vp2:'<strong>Designed for ASD and ADHD</strong> — concrete, predictable questions.',
+      vp3:'<strong>Parents get conversation starters</strong> — generated from their child\'s answers.',
+      namePlaceholder:'Noah, Yosi, Rina...',ageLabels:['Pre-K|3–5','K-3|6–8','Gr.4-6|9–12'],done:'Well done!',doneSub:"I sent mom and dad a summary of your day."},
     voiceLang:'en-US'
   },
   fr:{
@@ -777,6 +872,21 @@ const T={
         {e:'🎊',t:'Génial!',s:"Étape 4 — encore une et c'est fini! 🎊"},
       ]
     },
+    answers:{
+      s1:[{lbl:'Content',speak:"J'étais content",val:'Content'},{lbl:'OK',speak:"J'étais OK",val:'OK'},{lbl:'Comme ci',speak:'Comme ci comme ça',val:'Comme ci'},{lbl:'Triste',speak:"J'étais triste",val:'Triste'},{lbl:'Difficile',speak:"C'était difficile",val:'Difficile'}],
+      s2:[{lbl:"J'ai couru",speak:"J'ai couru et joué",val:"J'ai couru"},{lbl:"J'ai mangé",speak:"J'ai mangé",val:"J'ai mangé"},{lbl:'Seul',speak:"J'étais seul",val:'Seul'},{lbl:'Avec des amis',speak:"J'ai parlé avec des amis",val:'Avec des amis'},{lbl:'Lu',speak:"J'ai lu un livre",val:'Lu'},{lbl:'Quelque chose',speak:"Il s'est passé quelque chose",val:'Quelque chose'}],
+      s3:[{lbl:'Amusant',speak:"C'était amusant",val:'Amusant'},{lbl:'Difficile',speak:"C'était difficile",val:'Difficile'},{lbl:"J'ai réussi!",speak:"J'ai réussi",val:"J'ai réussi"},{lbl:'Pas compris',speak:"Je n'ai pas compris",val:'Pas compris'},{lbl:'Fatigué',speak:"J'étais fatigué",val:'Fatigué'},{lbl:'OK',speak:"C'était OK",val:'OK'}],
+      s4:[{lbl:'Ami',speak:"J'ai joué avec un ami",val:'Ami'},{lbl:'Tout le monde',speak:"J'ai joué avec tout le monde",val:'Tout le monde'},{lbl:'Seul',speak:"J'ai préféré jouer seul",val:'Seul'},{lbl:'En colère',speak:"J'étais en colère",val:'En colère'},{lbl:'Personne',speak:"Je n'ai trouvé personne",val:'Personne'},{lbl:"C'était fun!",speak:"C'était très fun",val:'Fun'}],
+      s5:[{lbl:'Quelque chose de cool!',speak:"Il s'est passé quelque chose de cool",val:'Cool'},{lbl:'Quelque chose de triste',speak:"Il s'est passé quelque chose de triste",val:'Triste'},{lbl:'Le plus fun',speak:"C'était le plus fun",val:'Le plus fun'},{lbl:'Tout va bien',speak:'Tout va bien',val:'Tout va bien'}]
+    },
+    ui:{next:'Suivant ←',finish:'Terminé 🎉',multiHint:'Tu peux choisir plusieurs',btnKid:"Je suis l'enfant — On commence",btnParent:'Je suis le parent — Voir le résumé',btnVoice:'🎙️ Enregistrer voix',
+      headline:'Sans mots.',subline:'Un espace sûr pour les enfants pour partager leur journée',
+      lblWhy:'Pourquoi DayLink?',lblAge:'Quel âge as-tu?',lblGender:'Tu es un garçon ou une fille?',lblName:'Comment tu t\'appelles?',
+      genderM:'👦 Garçon',genderF:'👧 Fille',
+      vp1:'<strong>Comme un jeu</strong> — choix et emoji, pas besoin d\'écrire.',
+      vp2:'<strong>Adapté autisme et ADHD</strong> — questions concrètes et prévisibles.',
+      vp3:'<strong>Le parent reçoit des questions</strong> — créées selon les réponses de l\'enfant.',
+      namePlaceholder:'Noé, Yosi, Rina...',ageLabels:['Matern.|3–5','CP-CE|6–8','CM|9–12'],done:'Bravo!',doneSub:'J\'ai envoyé le résumé à maman et papa.'},
     voiceLang:'fr-FR'
   }
 };
@@ -798,13 +908,14 @@ function pickLang(b){
   document.querySelectorAll('.lang-btn').forEach(x=>x.classList.remove('sel'));
   b.classList.add('sel');
   st.lang=b.dataset.lang;
-  const isRTL=st.lang==='he'||st.lang==='ar';
-  document.documentElement.setAttribute('dir',isRTL?'rtl':'ltr');
-  document.documentElement.setAttribute('lang',st.lang);
+  applyTranslations();
   const go=document.querySelector('.lang-go');
-  const t=T[st.lang];
-  go.textContent=st.lang==='he'?'הַמְשֵׁךְ ←':st.lang==='ar'?'متابعة ←':'Continue →';
+  const labels={he:'הַמְשֵׁךְ ←',ar:'متابعة ←',ru:'Продолжить →',en:'Continue →',fr:'Continuer →'};
+  if(go) go.textContent=labels[st.lang]||'Continue →';
 }
+
+// Apply Hebrew translations on load
+document.addEventListener('DOMContentLoaded', ()=>{ applyTranslations(); });
 
 function pickAge(b){
   document.querySelectorAll('.age-p').forEach(x=>x.classList.remove('sel'));
@@ -819,14 +930,102 @@ function pickGender(b){
 function applyTranslations(){
   const t=T[st.lang]||T['he'];
   const g=st.gender||'m';
-  const qs=(t.q[st.age]||t.q['mid'])[g]||( t.q[st.age]||t.q['mid'])['m'];
+  const qs=(t.q[st.age]||t.q['mid'])[g]||((t.q[st.age]||t.q['mid'])['m']);
+
+  // Questions + steps
   for(let i=1;i<=5;i++){
     const el=document.getElementById('q'+i); if(el) el.textContent=qs[i-1];
-    const st_el=document.getElementById('step'+i); if(st_el) st_el.textContent=t.step[i-1];
+    const se=document.getElementById('step'+i); if(se) se.textContent=t.step[i-1];
     const sn=document.getElementById('sname'+i); if(sn) sn.textContent=t.sname[i-1];
     const h=document.getElementById('lbl-hear'+(i===1?'':i)); if(h) h.textContent=t.hear;
   }
+
+  // Answer cards — update via data-key
+  const ans = t.answers || {};
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.dataset.key;
+    const [station, idx] = key.split('_');
+    const group = ans[station];
+    if(group && idx !== undefined){
+      const item = group[parseInt(idx)];
+      if(!item) return;
+      const lbl = el.querySelector('.e-lbl,.c-lbl,.st-lbl');
+      if(lbl) lbl.textContent = item.lbl;
+      el.dataset.v     = item.val;
+      el.dataset.speak = item.speak;
+    }
+    // UI strings
+    if(t.ui){
+      if(key==='btn-next') el.textContent = t.ui.next;
+      if(key==='btn-finish') el.textContent = t.ui.finish;
+    }
+  });
+
+  // multi-hint
+  const mh = document.getElementById('multi-hint');
+  if(mh && t.ui) mh.textContent = t.ui.multiHint;
+
+  // CTA buttons
+  const bk=document.getElementById('btn-kid'); if(bk&&t.ui) bk.textContent=t.ui.btnKid;
+  const bp=document.getElementById('btn-parent'); if(bp&&t.ui) bp.textContent=t.ui.btnParent;
+
+  // Welcome screen full update
+  if(t.ui){
+    const u=t.ui;
+    const set=(id,v,html)=>{ const e=document.getElementById(id); if(e){ if(html) e.innerHTML=v; else e.textContent=v; }};
+    set('w-headline', u.headline);
+    set('w-sub', u.subline);
+    set('lbl-why', u.lblWhy);
+    set('lbl-age', u.lblAge);
+    set('lbl-gender', u.lblGender);
+    set('lbl-name', u.lblName);
+    set('vp1', u.vp1, true);
+    set('vp2', u.vp2, true);
+    set('vp3', u.vp3, true);
+    set('done-h', u.done);
+    set('done-sub-text', u.doneSub);
+    // Age buttons
+    if(u.ageLabels){
+      document.querySelectorAll('.age-p[data-age]').forEach((btn,i)=>{
+        const parts=(u.ageLabels[i]||'').split('|');
+        btn.innerHTML=`${parts[0]||''}<small>${parts[1]||''}</small>`;
+      });
+    }
+    const ni=document.getElementById('name-input'); if(ni&&u.namePlaceholder) ni.placeholder=u.namePlaceholder;
+    const gm=document.getElementById('gbtn-m'); if(gm&&u.genderM) gm.textContent=u.genderM;
+    const gf=document.getElementById('gbtn-f'); if(gf&&u.genderF) gf.textContent=u.genderF;
+    // voice button
+    const vb=document.querySelector('.cta[onclick*="screen-voice"]'); if(vb&&u.btnVoice) vb.textContent=u.btnVoice;
+  }
+
+  // RTL / LTR
+  const isRTL = st.lang==='he'||st.lang==='ar';
+  document.documentElement.setAttribute('dir', isRTL?'rtl':'ltr');
+  document.documentElement.setAttribute('lang', st.lang);
 }
+
+// ── MOBILE AUDIO UNLOCK ──────────────────────────────
+let _audioUnlocked = false;
+function unlockAudio(){
+  if(_audioUnlocked) return;
+  _audioUnlocked = true;
+  // Unlock AudioContext
+  try{
+    const ctx = new (window.AudioContext||window.webkitAudioContext)();
+    const buf = ctx.createBuffer(1,1,22050);
+    const src = ctx.createBufferSource();
+    src.buffer=buf; src.connect(ctx.destination); src.start(0);
+    ctx.resume();
+  }catch(e){}
+  // Unlock speechSynthesis on iOS
+  if(window.speechSynthesis){
+    const u=new SpeechSynthesisUtterance('');
+    u.volume=0; u.rate=10;
+    window.speechSynthesis.speak(u);
+  }
+}
+document.addEventListener('touchstart', unlockAudio, {once:true, passive:true});
+document.addEventListener('click', unlockAudio, {once:true});
 
 function startKid(){
   st.name=document.getElementById('name-input').value.trim()||'חבר';
