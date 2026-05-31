@@ -7,264 +7,286 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cyan:#00D4E8;--pink:#FF3EA5;--yellow:#FFD600;
-  --orange:#FF6B00;--black:#111;--white:#fff;--r:999px;
+  --navy:#2B1A8A;
+  --purple:#6B48F0;
+  --lavender:#C5BFFF;
+  --yellow:#F5D842;
+  --cyan:#B8EDF0;
+  --white:#FFFFFF;
+  --dark:#1A0F5E;
+  --card1:#A594F0;
+  --card2:#B8EDF0;
+  --paper:#F4F2FF;
+  --r:999px;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-height:100vh;overflow-x:hidden;}
+body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;overflow-x:hidden;}
 
-/* ── SCREENS ── */
 .screen{display:none;min-height:100vh;}
 .screen.active{display:flex;flex-direction:column;animation:scIn .38s cubic-bezier(.4,0,.2,1);}
 @keyframes scIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
-/* stagger */
-.stagger>*{opacity:0;animation:fadeUp .4s cubic-bezier(.4,0,.2,1) forwards;}
-.stagger>*:nth-child(1){animation-delay:.05s}.stagger>*:nth-child(2){animation-delay:.12s}
-.stagger>*:nth-child(3){animation-delay:.19s}.stagger>*:nth-child(4){animation-delay:.26s}
-.stagger>*:nth-child(5){animation-delay:.33s}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-
-/* ════════════════
-   LANGUAGE SCREEN
-════════════════ */
-#screen-lang{background:var(--black);align-items:center;justify-content:center;padding:40px 24px;text-align:center;position:relative;overflow:hidden;}
-#screen-lang::before{content:'';position:absolute;width:260px;height:260px;background:var(--yellow);border-radius:50%;top:-80px;right:-80px;opacity:.12;}
-#screen-lang::after{content:'';position:absolute;width:160px;height:160px;background:var(--pink);border-radius:50%;bottom:-50px;left:-50px;opacity:.15;}
-
+/* ═══ LANGUAGE ═══ */
+#screen-lang{background:var(--navy);align-items:center;justify-content:center;padding:40px 24px;text-align:center;}
+.lang-inner{display:flex;flex-direction:column;align-items:center;width:100%;max-width:360px;position:relative;z-index:1;}
 .lang-logo{font-size:52px;margin-bottom:8px;animation:bounce 2s ease-in-out infinite;}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.lang-title{font-size:32px;font-weight:900;color:var(--white);margin-bottom:4px;}
-.lang-sub{font-size:13px;font-weight:400;color:rgba(255,255,255,.45);margin-bottom:36px;}
-
-.lang-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%;max-width:340px;}
-.lang-btn{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.12);border-radius:18px;padding:16px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;transition:all .18s;font-family:'Noto Sans Hebrew',sans-serif;}
-.lang-btn:hover{background:rgba(255,255,255,.16);border-color:var(--yellow);transform:translateY(-2px);}
+.lang-title{font-size:28px;font-weight:900;color:var(--white);margin-bottom:3px;}
+.lang-sub{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:28px;}
+.lang-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%;margin-bottom:20px;}
+.lang-btn{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:20px;padding:16px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px;transition:all .18s;}
+.lang-btn:hover{background:rgba(255,255,255,.15);border-color:var(--yellow);transform:translateY(-2px);}
 .lang-btn.sel{background:var(--yellow);border-color:var(--yellow);}
 .lang-flag{font-size:28px;}
 .lang-name{font-size:14px;font-weight:700;color:var(--white);}
-.lang-native{font-size:11px;font-weight:400;color:rgba(255,255,255,.5);}
-.lang-btn.sel .lang-name,.lang-btn.sel .lang-native{color:var(--black);}
-.lang-go{width:100%;max-width:340px;margin-top:18px;padding:16px;background:var(--yellow);color:var(--black);border:none;border-radius:var(--r);font-family:'Noto Sans Hebrew',sans-serif;font-size:17px;font-weight:800;cursor:pointer;box-shadow:3px 3px 0 rgba(255,255,255,.2);transition:all .15s;}
-.lang-go:hover{transform:translateY(-2px);}
+.lang-native{font-size:11px;color:rgba(255,255,255,.45);}
+.lang-btn.sel .lang-name,.lang-btn.sel .lang-native{color:var(--dark);}
+.lang-go{width:100%;padding:15px;background:var(--purple);color:var(--white);border:none;border-radius:var(--r);font-family:'Noto Sans Hebrew',sans-serif;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 4px 20px rgba(107,72,240,.4);transition:all .15s;}
+.lang-go:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(107,72,240,.5);}
 
-/* ════════════════
-   WELCOME
-════════════════ */
-#screen-welcome{background:var(--cyan);}
-.w-top{background:var(--pink);padding:52px 24px 44px;position:relative;overflow:hidden;}
-.w-top::before{content:'';position:absolute;width:150px;height:150px;background:var(--yellow);border-radius:50%;top:-50px;left:-50px;opacity:.5;animation:floatA 7s ease-in-out infinite;}
-.w-top::after{content:'';position:absolute;width:80px;height:80px;background:var(--black);border-radius:50%;bottom:-25px;right:30px;opacity:.1;}
-@keyframes floatA{0%,100%{transform:translate(0,0)}50%{transform:translate(12px,-12px)}}
-.logo-pill{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);border-radius:var(--r);padding:8px 18px;font-size:12px;font-weight:800;letter-spacing:.1em;margin-bottom:16px;position:relative;z-index:1;}
-.logo-dot{width:7px;height:7px;background:var(--yellow);border-radius:50%;}
-.w-headline{font-size:46px;font-weight:900;color:var(--white);line-height:.95;position:relative;z-index:1;margin-bottom:10px;}
-.w-headline em{color:var(--black);font-style:normal;}
-.w-sub{font-size:14px;font-weight:500;color:rgba(0,0,0,.6);position:relative;z-index:1;}
-.w-body{padding:18px 20px 36px;display:flex;flex-direction:column;gap:12px;}
-.bento{background:var(--white);border-radius:22px;padding:16px 18px;box-shadow:3px 3px 0 rgba(0,0,0,.12);}
-.bento-lbl{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,0,0,.3);margin-bottom:10px;}
-.vp-row{display:flex;flex-direction:column;gap:9px;}
-.vp-item{display:flex;align-items:flex-start;gap:9px;}
-.vp-num{background:var(--black);color:var(--white);border-radius:50%;width:20px;height:20px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
-.vp-text{font-size:13px;font-weight:500;color:var(--black);line-height:1.45;}
-.vp-text strong{font-weight:800;}
-.age-row{display:flex;gap:7px;}
-.age-p{flex:1;padding:11px 6px;background:var(--yellow);border:none;border-radius:var(--r);font-family:'Noto Sans Hebrew',sans-serif;font-size:13px;font-weight:700;color:var(--black);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;box-shadow:2px 2px 0 rgba(0,0,0,.15);transition:transform .12s,box-shadow .12s;}
-.age-p small{font-size:10px;font-weight:400;opacity:.55;}
-.age-p:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 rgba(0,0,0,.2);}
-.age-p.sel{background:var(--black);color:var(--white);}
-.name-field{width:100%;background:var(--cyan);border:none;border-radius:var(--r);padding:13px 18px;font-family:'Noto Sans Hebrew',sans-serif;font-size:15px;font-weight:600;color:var(--black);outline:none;box-shadow:2px 2px 0 rgba(0,0,0,.12);}
-.name-field::placeholder{color:rgba(0,0,0,.28);}
-.cta-col{display:flex;flex-direction:column;gap:9px;}
-.cta{width:100%;padding:15px 22px;border:none;border-radius:var(--r);font-family:'Noto Sans Hebrew',sans-serif;font-size:16px;font-weight:800;cursor:pointer;box-shadow:3px 3px 0 rgba(0,0,0,.18);transition:transform .12s,box-shadow .12s;text-align:center;}
-.cta:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(0,0,0,.22);}
-.cta:active{transform:translate(1px,1px);box-shadow:1px 1px 0 rgba(0,0,0,.12);}
-.cta-kid{background:var(--orange);color:var(--white);}
-.cta-parent{background:var(--black);color:var(--white);}
+/* ═══ WELCOME ═══ */
+#screen-welcome{background:var(--navy);}
+.w-hero{background:var(--dark);padding:0 24px 0;position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;}
 
-/* ════════════════
-   VOICE STUDIO
-════════════════ */
-#screen-voice{background:#f4f4f4;}
-.vs-hero{background:var(--pink);padding:28px 20px 32px;position:relative;overflow:hidden;}
-.vs-hero::before{content:'';position:absolute;width:120px;height:120px;background:var(--yellow);border-radius:50%;top:-35px;left:-35px;opacity:.4;}
-.vs-back{width:34px;height:34px;background:var(--white);border:none;border-radius:50%;font-size:15px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative;z-index:1;}
-.vs-title{font-size:26px;font-weight:900;color:var(--white);position:relative;z-index:1;margin-bottom:4px;}
-.vs-sub{font-size:13px;font-weight:500;color:rgba(0,0,0,.5);position:relative;z-index:1;}
+/* blob mascot SVG BG */
+.w-blob-wrap{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;}
 
-.vs-body{padding:16px 16px 60px;max-width:480px;margin:0 auto;}
+.w-text{position:relative;z-index:2;padding-bottom:28px;}
+.w-label{font-size:12px;font-weight:700;color:var(--lavender);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
+.w-headline{font-size:34px;font-weight:900;color:var(--white);line-height:1.1;margin-bottom:6px;}
+.w-headline span{color:var(--yellow);}
 
-.vs-section-title{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,0,0,.3);margin:20px 0 10px;}
+/* description card */
+.w-desc{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:16px 18px;margin:0 0 8px;}
+.w-desc p{font-size:13px;font-weight:400;color:rgba(255,255,255,.85);line-height:1.75;}
+.w-desc strong{color:var(--yellow);}
 
-.vs-item{background:var(--white);border-radius:16px;padding:14px 16px;margin-bottom:8px;display:flex;align-items:center;gap:10px;box-shadow:2px 2px 0 rgba(0,0,0,.08);}
-.vs-item-label{flex:1;font-size:13px;font-weight:600;color:var(--black);line-height:1.4;}
-.vs-item-key{font-size:10px;font-weight:400;color:rgba(0,0,0,.3);margin-top:2px;}
-.vs-controls{display:flex;gap:6px;flex-shrink:0;}
+.w-body{padding:16px 20px 36px;display:flex;flex-direction:column;gap:12px;background:var(--navy);}
 
-.vs-btn{width:36px;height:36px;border:none;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:transform .12s,box-shadow .12s;box-shadow:2px 2px 0 rgba(0,0,0,.12);}
-.vs-btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 rgba(0,0,0,.16);}
-.vs-btn:active{transform:translate(1px,1px);}
-.btn-rec{background:var(--pink);color:var(--white);}
-.btn-rec.recording{background:var(--black);animation:recPulse .6s ease-in-out infinite alternate;}
-@keyframes recPulse{from{box-shadow:2px 2px 0 var(--pink)}to{box-shadow:2px 2px 0 var(--pink),0 0 0 6px rgba(255,62,165,.2)}}
-.btn-play{background:var(--cyan);color:var(--black);}
-.btn-play:disabled{opacity:.3;cursor:not-allowed;}
-.btn-del{background:#eee;color:rgba(0,0,0,.4);font-size:13px;}
-.btn-del:disabled{opacity:.3;cursor:not-allowed;}
+/* age cards illustrated style */
+.age-cards{display:flex;flex-direction:column;gap:10px;}
+.age-card{
+  border-radius:24px;padding:18px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;transition:all .18s;
+  position:relative;overflow:hidden;
+}
+.age-card:nth-child(1){background:var(--card1);}
+.age-card:nth-child(2){background:var(--card2);}
+.age-card:nth-child(3){background:var(--yellow);}
+.age-card.sel{transform:scale(1.02);box-shadow:0 8px 28px rgba(0,0,0,.25);}
+.age-card:hover{transform:scale(1.01);}
+.age-card-info{}
+.age-card-range{font-size:11px;font-weight:700;color:rgba(0,0,0,.45);letter-spacing:.05em;margin-bottom:4px;}
+.age-card-label{font-size:20px;font-weight:900;color:var(--dark);}
+.age-card-check{width:36px;height:36px;background:rgba(255,255,255,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:var(--dark);opacity:0;transition:opacity .2s;}
+.age-card.sel .age-card-check{opacity:1;}
+.age-blob{position:absolute;left:-10px;bottom:-10px;font-size:60px;opacity:.18;transform:rotate(-15deg);pointer-events:none;}
 
-.vs-status{width:8px;height:8px;border-radius:50%;background:#ddd;flex-shrink:0;}
-.vs-status.has-rec{background:#34d399;}
+/* gender row */
+.gender-row{display:flex;gap:10px;}
+.gender-btn{flex:1;padding:14px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:18px;font-family:'Noto Sans Hebrew',sans-serif;font-size:15px;font-weight:700;color:var(--white);cursor:pointer;transition:all .15s;text-align:center;}
+.gender-btn:hover{background:rgba(255,255,255,.14);}
+.gender-btn.sel{background:var(--purple);border-color:var(--purple);box-shadow:0 4px 16px rgba(107,72,240,.4);}
 
-.vs-mode-toggle{background:var(--white);border-radius:20px;padding:14px 16px;margin-bottom:16px;box-shadow:2px 2px 0 rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;}
-.vs-mode-label{font-size:13px;font-weight:700;color:var(--black);}
-.vs-mode-sub{font-size:11px;font-weight:400;color:rgba(0,0,0,.4);}
-.toggle-sw{width:44px;height:24px;background:#ddd;border-radius:var(--r);position:relative;cursor:pointer;transition:background .2s;border:none;flex-shrink:0;}
-.toggle-sw.on{background:var(--pink);}
-.toggle-sw::after{content:'';position:absolute;width:18px;height:18px;background:var(--white);border-radius:50%;top:3px;right:3px;transition:right .2s;box-shadow:1px 1px 3px rgba(0,0,0,.2);}
-.toggle-sw.on::after{right:23px;}
+/* name field */
+.name-field{width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.18);border-radius:var(--r);padding:14px 20px;font-family:'Noto Sans Hebrew',sans-serif;font-size:16px;font-weight:600;color:var(--white);outline:none;transition:border-color .2s;}
+.name-field::placeholder{color:rgba(255,255,255,.3);}
+.name-field:focus{border-color:var(--yellow);}
 
-.vs-progress{font-size:12px;font-weight:700;color:rgba(0,0,0,.4);text-align:center;padding:12px 0;}
+/* CTA buttons */
+.cta-col{display:flex;flex-direction:column;gap:10px;}
+.cta{width:100%;padding:16px 24px;border:none;border-radius:var(--r);font-family:'Noto Sans Hebrew',sans-serif;font-size:16px;font-weight:800;cursor:pointer;transition:all .15s;text-align:center;}
+.cta:hover{transform:translateY(-2px);}
+.cta:active{transform:translateY(0);}
+.cta-kid{background:var(--yellow);color:var(--dark);box-shadow:0 4px 20px rgba(245,216,66,.35);}
+.cta-kid:hover{box-shadow:0 6px 28px rgba(245,216,66,.5);}
+.cta-parent{background:var(--purple);color:var(--white);box-shadow:0 4px 20px rgba(107,72,240,.35);}
+.cta-parent:hover{box-shadow:0 6px 28px rgba(107,72,240,.5);}
 
-.topbar{background:var(--black);padding:12px 16px 10px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;}
-.tb-back{width:34px;height:34px;background:var(--yellow);border:none;border-radius:50%;font-size:15px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+/* section label */
+.sec-lbl{font-size:11px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
+
+/* ═══ TOPBAR ═══ */
+.topbar{background:var(--dark);padding:14px 18px 12px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:20;}
+.tb-back{width:36px;height:36px;background:rgba(255,255,255,.15);border:none;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--white);font-weight:700;transition:background .15s;transform:scaleX(-1);}
+.tb-back:hover{background:rgba(255,255,255,.18);}
 .tb-prog{flex:1;}
-.tb-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
-.tb-step{font-size:11px;font-weight:700;color:var(--white);letter-spacing:.04em;}
+.tb-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.tb-step{font-size:11px;font-weight:700;color:rgba(255,255,255,.6);}
 .tb-stars{font-size:13px;color:var(--yellow);}
-.tb-track{height:5px;background:rgba(255,255,255,.18);border-radius:var(--r);overflow:hidden;}
+.tb-track{height:5px;background:rgba(255,255,255,.15);border-radius:var(--r);overflow:hidden;}
 .tb-fill{height:100%;background:var(--yellow);border-radius:var(--r);transition:width .5s cubic-bezier(.4,0,.2,1);}
 
-/* ════════════════
-   STATION
-════════════════ */
-.s-body{flex:1;display:flex;flex-direction:column;}
-.s-band{padding:26px 20px 20px;position:relative;overflow:hidden;}
-.s-band::after{content:'';position:absolute;width:90px;height:90px;background:rgba(0,0,0,.06);border-radius:50%;top:-28px;left:-28px;}
-.s-tag{display:inline-flex;align-items:center;gap:7px;background:var(--black);color:var(--white);border-radius:var(--r);padding:4px 12px;font-size:11px;font-weight:800;letter-spacing:.07em;margin-bottom:10px;position:relative;z-index:1;}
-.s-num{width:17px;height:17px;background:var(--yellow);color:var(--black);border-radius:50%;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;}
-.s-q{font-size:24px;font-weight:800;color:var(--black);line-height:1.25;margin:6px 0 5px;position:relative;z-index:1;}
-.speak-btn{display:inline-flex;align-items:center;gap:5px;background:var(--white);border:none;border-radius:var(--r);padding:6px 12px;font-family:'Noto Sans Hebrew',sans-serif;font-size:12px;font-weight:700;color:var(--black);cursor:pointer;box-shadow:2px 2px 0 rgba(0,0,0,.12);transition:transform .1s;position:relative;z-index:1;}
-.speak-btn:hover{transform:translate(-1px,-1px);}
-.s-canvas{flex:1;background:var(--white);padding:20px 16px 40px;display:flex;flex-direction:column;align-items:center;max-width:480px;margin:0 auto;width:100%;}
+/* ═══ STATION ═══ */
+.s-body{flex:1;display:flex;flex-direction:column;background:var(--paper);}
+.s-band{padding:28px 22px 22px;position:relative;overflow:hidden;}
+.s-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(0,0,0,.12);border-radius:var(--r);padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.07em;color:rgba(0,0,0,.6);margin-bottom:12px;position:relative;z-index:1;}
+.s-num{width:18px;height:18px;background:var(--dark);color:var(--white);border-radius:50%;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+.s-q{font-size:26px;font-weight:900;color:var(--dark);line-height:1.2;margin:4px 0 8px;position:relative;z-index:1;}
+.speak-btn{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.5);border:1px solid rgba(0,0,0,.12);border-radius:var(--r);padding:7px 14px;font-family:'Noto Sans Hebrew',sans-serif;font-size:12px;font-weight:700;color:rgba(0,0,0,.7);cursor:pointer;transition:all .15s;position:relative;z-index:1;}
+.speak-btn:hover{background:rgba(255,255,255,.18);}
 
-/* ── EMOJI ROW ── */
+/* canvas light background for choices */
+.s-canvas{flex:1;background:var(--paper);border-radius:0;padding:22px 18px 44px;display:flex;flex-direction:column;align-items:center;max-width:100%;margin:0;width:100%;}
+
+/* emoji buttons */
 .emoji-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;width:100%;margin-bottom:22px;}
-.e-btn{background:var(--yellow);border:none;border-radius:18px;padding:13px 9px 9px;font-size:32px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:60px;box-shadow:2px 2px 0 rgba(0,0,0,.12);transition:transform .15s cubic-bezier(.34,1.56,.64,1),box-shadow .12s;animation:cardIn .35s cubic-bezier(.34,1.56,.64,1) both;}
+.e-btn{background:var(--white);border:2px solid rgba(107,72,240,.12);border-radius:20px;padding:14px 10px 10px;font-size:32px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:62px;box-shadow:0 2px 12px rgba(43,26,138,.08);transition:all .18s;animation:cardIn .35s cubic-bezier(.34,1.56,.64,1) both;}
 .e-btn:nth-child(1){animation-delay:.04s}.e-btn:nth-child(2){animation-delay:.09s}.e-btn:nth-child(3){animation-delay:.14s}.e-btn:nth-child(4){animation-delay:.19s}.e-btn:nth-child(5){animation-delay:.24s}
 @keyframes cardIn{from{opacity:0;transform:scale(.7) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.e-lbl{font-size:11px;font-weight:700;color:var(--black);}
-.e-btn:hover{transform:translate(-1px,-3px);box-shadow:3px 5px 0 rgba(0,0,0,.14);}
-.e-btn.sel{background:var(--black);box-shadow:2px 2px 0 var(--pink);}
+.e-lbl{font-size:11px;font-weight:700;color:var(--dark);}
+.e-btn:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(43,26,138,.14);}
+.e-btn.sel{background:var(--purple);border-color:var(--purple);box-shadow:0 6px 20px rgba(107,72,240,.4);}
 .e-btn.sel .e-lbl{color:var(--white);}
 
-/* ── CARD GRID ── */
-.c-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;width:100%;margin-bottom:22px;}
-.c-card{background:var(--cyan);border:none;border-radius:18px;padding:15px 10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:2px 2px 0 rgba(0,0,0,.12);transition:transform .15s cubic-bezier(.34,1.56,.64,1),box-shadow .12s;animation:cardIn .35s cubic-bezier(.34,1.56,.64,1) both;text-align:center;}
+/* choice cards */
+.c-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%;margin-bottom:22px;}
+.c-card{background:var(--white);border:2px solid rgba(107,72,240,.1);border-radius:20px;padding:16px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px;box-shadow:0 2px 12px rgba(43,26,138,.07);transition:all .18s;animation:cardIn .35s cubic-bezier(.34,1.56,.64,1) both;text-align:center;}
 .c-card:nth-child(1){animation-delay:.04s}.c-card:nth-child(2){animation-delay:.09s}.c-card:nth-child(3){animation-delay:.14s}.c-card:nth-child(4){animation-delay:.19s}.c-card:nth-child(5){animation-delay:.24s}.c-card:nth-child(6){animation-delay:.29s}
-.c-icon{font-size:24px;display:block;}
-.c-lbl{font-size:12px;font-weight:700;color:var(--black);line-height:1.3;width:100%;}
-.c-card:hover{transform:translate(-1px,-2px);box-shadow:3px 4px 0 rgba(0,0,0,.15);}
-.c-card.sel{background:var(--black);box-shadow:2px 2px 0 var(--cyan);}
+.c-icon{font-size:26px;display:block;}
+.c-lbl{font-size:12px;font-weight:700;color:var(--dark);line-height:1.3;width:100%;}
+.c-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(43,26,138,.12);}
+.c-card.sel{background:var(--purple);border-color:var(--purple);box-shadow:0 6px 20px rgba(107,72,240,.4);}
 .c-card.sel .c-lbl{color:var(--white);}
-.c-card.sel-m{background:var(--orange);box-shadow:2px 2px 0 rgba(0,0,0,.15);}
-.c-card.sel-m .c-lbl{color:var(--white);}
+.c-card.sel-m{background:var(--card2);border-color:rgba(107,72,240,.3);}
+.c-card.sel-m .c-lbl{color:var(--dark);}
 
-/* ── STORY GRID ── */
-.st-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%;margin-bottom:22px;}
-.st-card{border:none;border-radius:20px;padding:22px 10px;font-family:'Noto Sans Hebrew',sans-serif;font-size:13px;font-weight:800;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:3px 3px 0 rgba(0,0,0,.14);transition:transform .15s cubic-bezier(.34,1.56,.64,1),box-shadow .12s;text-align:center;animation:cardIn .4s cubic-bezier(.34,1.56,.64,1) both;}
-.st-card:nth-child(1){animation-delay:.05s}.st-card:nth-child(2){animation-delay:.12s}.st-card:nth-child(3){animation-delay:.19s}.st-card:nth-child(4){animation-delay:.26s}
+/* story cards */
+.st-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:100%;margin-bottom:22px;}
+.st-card{border:none;border-radius:24px;padding:24px 12px;font-family:'Noto Sans Hebrew',sans-serif;font-size:14px;font-weight:800;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:9px;box-shadow:0 4px 16px rgba(43,26,138,.1);transition:all .18s;animation:cardIn .4s cubic-bezier(.34,1.56,.64,1) both;text-align:center;}
+.st-card:nth-child(1){background:var(--yellow);color:var(--dark);animation-delay:.05s;}
+.st-card:nth-child(2){background:var(--card2);color:var(--dark);animation-delay:.12s;}
+.st-card:nth-child(3){background:var(--card1);color:var(--white);animation-delay:.19s;}
+.st-card:nth-child(4){background:var(--lavender);color:var(--dark);animation-delay:.26s;}
 .st-icon{font-size:30px;display:block;}
 .st-lbl{font-size:13px;font-weight:800;line-height:1.3;}
-.st-card:hover{transform:translate(-2px,-3px);box-shadow:5px 6px 0 rgba(0,0,0,.16);}
-.st-card.sel{transform:translate(-2px,-3px);outline:2px solid rgba(0,0,0,.25);box-shadow:5px 6px 0 rgba(0,0,0,.16);}
-.sc1{background:var(--yellow);color:var(--black);}
-.sc2{background:var(--cyan);color:var(--black);}
-.sc3{background:var(--pink);color:var(--white);}
-.sc4{background:var(--orange);color:var(--white);}
+.st-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(43,26,138,.15);}
+.st-card.sel{transform:translateY(-4px);outline:3px solid var(--dark);box-shadow:0 8px 24px rgba(43,26,138,.18);}
 
-.nx-btn{background:var(--black);color:var(--white);border:none;border-radius:var(--r);padding:15px 48px;font-family:'Noto Sans Hebrew',sans-serif;font-size:16px;font-weight:800;cursor:pointer;box-shadow:3px 3px 0 var(--pink);transition:transform .12s,box-shadow .12s;display:none;}
+/* next button */
+.nx-btn{background:var(--purple);color:var(--white);border:none;border-radius:var(--r);padding:16px 52px;font-family:'Noto Sans Hebrew',sans-serif;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 4px 20px rgba(107,72,240,.4);transition:all .18s;display:none;}
 .nx-btn.show{display:block;animation:popIn .35s cubic-bezier(.34,1.56,.64,1);}
 @keyframes popIn{from{transform:scale(.6) rotate(-4deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
-.nx-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--pink);}
+.nx-btn:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(107,72,240,.5);}
 
-/* ════════════════
-   CELEBRATE OVERLAY
-════════════════ */
+/* multi hint */
+#multi-hint{color:rgba(43,26,138,.45);font-size:12px;font-weight:600;margin-bottom:14px;align-self:flex-start;}
+
+/* ═══ CELEBRATE ═══ */
 .celebrate{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100;pointer-events:none;opacity:0;transition:opacity .25s;}
 .celebrate.show{pointer-events:all;opacity:1;}
-.cel-bg{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);}
-.cel-card{position:relative;z-index:1;background:var(--white);border-radius:28px;padding:36px 28px;text-align:center;box-shadow:6px 6px 0 var(--black);max-width:300px;width:90%;animation:celPop .45s cubic-bezier(.34,1.56,.64,1);}
+.cel-bg{position:absolute;inset:0;background:rgba(27,15,94,.7);backdrop-filter:blur(6px);}
+.cel-card{position:relative;z-index:1;background:var(--white);border-radius:32px;padding:40px 28px;text-align:center;box-shadow:0 20px 60px rgba(27,15,94,.4);max-width:300px;width:90%;animation:celPop .45s cubic-bezier(.34,1.56,.64,1);}
 @keyframes celPop{from{transform:scale(.5) rotate(-8deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
-.cel-emoji{font-size:60px;display:block;margin-bottom:8px;animation:wiggle .6s ease-in-out 3;}
+.cel-emoji{font-size:64px;display:block;margin-bottom:10px;animation:wiggle .6s ease-in-out 3;}
 @keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
-.cel-title{font-size:26px;font-weight:900;color:var(--black);margin-bottom:6px;}
-.cel-sub{font-size:14px;font-weight:500;color:rgba(0,0,0,.55);margin-bottom:20px;line-height:1.5;}
-.cel-btn{background:var(--black);color:var(--white);border:none;border-radius:var(--r);padding:13px 36px;font-family:'Noto Sans Hebrew',sans-serif;font-size:15px;font-weight:800;cursor:pointer;pointer-events:all;box-shadow:3px 3px 0 var(--yellow);}
-
-/* floating particles */
+.cel-title{font-size:28px;font-weight:900;color:var(--dark);margin-bottom:6px;}
+.cel-sub{font-size:14px;font-weight:500;color:rgba(27,15,94,.55);margin-bottom:22px;line-height:1.55;}
+.cel-btn{background:var(--purple);color:var(--white);border:none;border-radius:var(--r);padding:13px 40px;font-family:'Noto Sans Hebrew',sans-serif;font-size:16px;font-weight:800;cursor:pointer;pointer-events:all;box-shadow:0 4px 16px rgba(107,72,240,.4);}
 .particles{position:fixed;inset:0;pointer-events:none;z-index:99;}
 .pt{position:absolute;animation:ptFloat linear forwards;}
 @keyframes ptFloat{0%{opacity:1;transform:translateY(0) rotate(0) scale(1)}100%{opacity:0;transform:translateY(-200px) rotate(720deg) scale(.2)}}
 
-/* ════════════════
-   DONE
-════════════════ */
-#screen-done{background:var(--yellow);align-items:center;justify-content:center;padding:40px 24px;text-align:center;position:relative;overflow:hidden;}
-#screen-done::before{content:'';position:absolute;width:200px;height:200px;background:var(--pink);border-radius:50%;top:-60px;right:-60px;opacity:.45;}
-#screen-done::after{content:'';position:absolute;width:120px;height:120px;background:var(--cyan);border-radius:50%;bottom:-35px;left:-35px;opacity:.45;}
-.done-burst{font-size:74px;animation:burstIn .7s cubic-bezier(.34,1.56,.64,1);position:relative;z-index:1;}
+/* ═══ DONE ═══ */
+#screen-done{background:var(--dark);align-items:center;justify-content:center;padding:40px 24px;text-align:center;position:relative;overflow:hidden;}
+.done-burst{font-size:80px;animation:burstIn .7s cubic-bezier(.34,1.56,.64,1);position:relative;z-index:1;}
 @keyframes burstIn{from{transform:scale(0) rotate(-20deg)}to{transform:scale(1) rotate(0)}}
-.done-h{font-size:40px;font-weight:900;color:var(--black);margin:12px 0 6px;position:relative;z-index:1;}
-.done-sub{font-size:14px;font-weight:500;color:rgba(0,0,0,.6);max-width:230px;line-height:1.7;margin-bottom:26px;position:relative;z-index:1;}
+.done-h{font-size:40px;font-weight:900;color:var(--white);margin:14px 0 8px;position:relative;z-index:1;}
+.done-sub{font-size:15px;font-weight:400;color:rgba(255,255,255,.6);max-width:240px;line-height:1.7;margin-bottom:28px;position:relative;z-index:1;}
 .confetti-wrap{position:fixed;inset:0;pointer-events:none;z-index:99;}
 .cp{position:absolute;animation:cfFall linear forwards;}
 @keyframes cfFall{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
 
-/* ════════════════
-   PARENT
-════════════════ */
-#screen-parent{background:#f4f4f4;}
-.p-hero{background:var(--black);padding:26px 18px 34px;position:relative;overflow:hidden;}
-.p-hero::before{content:'';position:absolute;width:160px;height:160px;background:var(--cyan);border-radius:50%;top:-55px;right:-55px;opacity:.2;animation:floatA 8s ease-in-out infinite;}
-.p-back{width:34px;height:34px;background:var(--yellow);border:none;border-radius:50%;font-size:15px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-bottom:16px;position:relative;z-index:1;}
-.p-hero-row{display:flex;align-items:flex-start;gap:12px;position:relative;z-index:1;}
+/* ═══ PARENT ═══ */
+#screen-parent{background:var(--paper);}
+.p-hero{background:var(--dark);padding:28px 20px 38px;position:relative;overflow:hidden;}
+.p-back{width:36px;height:36px;background:rgba(255,255,255,.1);border:none;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--white);transition:background .15s;}
+.p-back:hover{background:rgba(255,255,255,.18);}
+.p-hero-row{display:flex;align-items:flex-start;gap:14px;position:relative;z-index:1;}
 .p-mood-block{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;}
-.p-mood-emoji{font-size:42px;}
-.p-mood-lbl{font-size:10px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.05em;}
-.p-name{font-size:26px;font-weight:900;color:var(--white);}
-.p-date{font-size:12px;font-weight:400;color:rgba(255,255,255,.45);margin-top:3px;}
-.p-body{padding:18px 16px 56px;max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
-.p-sec-lbl{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,0,0,.3);margin-bottom:9px;}
-.ins-stack{display:flex;flex-direction:column;gap:7px;}
-.ins-card{border-radius:18px;padding:13px 15px;box-shadow:2px 2px 0 rgba(0,0,0,.1);animation:fadeUp .4s cubic-bezier(.4,0,.2,1) both;}
-.ins-card:nth-child(1){animation-delay:.1s;background:var(--cyan);}
-.ins-card:nth-child(2){animation-delay:.17s;background:var(--yellow);}
-.ins-card:nth-child(3){animation-delay:.24s;background:var(--pink);}
-.ins-label{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(0,0,0,.4);margin-bottom:3px;}
-.ins-value{font-size:14px;font-weight:700;color:var(--black);line-height:1.4;}
-.ai-pill{display:inline-flex;align-items:center;gap:4px;background:var(--black);color:var(--yellow);border-radius:var(--r);padding:3px 10px;font-size:10px;font-weight:800;letter-spacing:.07em;margin-bottom:8px;}
-.q-stack{display:flex;flex-direction:column;gap:7px;}
-.q-card{background:var(--white);border-radius:18px;padding:12px 15px;box-shadow:2px 2px 0 rgba(0,0,0,.08);border-right:3px solid var(--yellow);animation:fadeUp .4s cubic-bezier(.4,0,.2,1) both;}
-.q-card:nth-child(1){animation-delay:.12s}.q-card:nth-child(2){animation-delay:.2s}.q-card:nth-child(3){animation-delay:.28s}
-.q-prefix{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:rgba(0,0,0,.3);margin-bottom:4px;}
-.q-text{font-size:13px;font-weight:500;color:var(--black);line-height:1.6;}
+.p-mood-emoji{font-size:46px;}
+.p-mood-lbl{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.05em;}
+.p-name{font-size:28px;font-weight:900;color:var(--white);}
+.p-date{font-size:12px;color:rgba(255,255,255,.4);margin-top:3px;}
+.p-body{padding:20px 18px 60px;max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:16px;}
+.p-sec-lbl{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(43,26,138,.4);margin-bottom:10px;}
+.ins-stack{display:flex;flex-direction:column;gap:8px;}
+.ins-card{border-radius:20px;padding:14px 16px;box-shadow:0 2px 12px rgba(43,26,138,.08);animation:fadeUp .4s cubic-bezier(.4,0,.2,1) both;}
+.ins-card:nth-child(1){background:var(--yellow);animation-delay:.08s;}
+.ins-card:nth-child(2){background:var(--card2);animation-delay:.15s;}
+.ins-card:nth-child(3){background:var(--card1);animation-delay:.22s;}
+.ins-label{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(27,15,94,.45);margin-bottom:3px;}
+.ins-value{font-size:14px;font-weight:700;color:var(--dark);line-height:1.4;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.ai-pill{display:inline-flex;align-items:center;gap:4px;background:var(--purple);color:var(--white);border-radius:var(--r);padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:.07em;margin-bottom:10px;}
+.q-stack{display:flex;flex-direction:column;gap:8px;}
+.q-card{background:var(--white);border-radius:18px;padding:14px 16px;box-shadow:0 2px 12px rgba(43,26,138,.07);border-right:4px solid var(--purple);animation:fadeUp .4s cubic-bezier(.4,0,.2,1) both;}
+.q-card:nth-child(1){animation-delay:.1s}.q-card:nth-child(2){animation-delay:.18s}.q-card:nth-child(3){animation-delay:.26s}
+.q-prefix{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:rgba(43,26,138,.35);margin-bottom:4px;}
+.q-text{font-size:14px;font-weight:500;color:var(--dark);line-height:1.6;}
 .tl{display:flex;flex-direction:column;}
-.tl-row{display:flex;gap:10px;padding-bottom:10px;position:relative;}
-.tl-row:not(:last-child)::before{content:'';position:absolute;right:13px;top:34px;width:2px;height:calc(100% - 20px);background:rgba(0,0,0,.08);}
-.tl-dot{width:30px;height:30px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;z-index:1;}
-.tl-info{flex:1;padding-top:3px;}
-.tl-station{font-size:10px;font-weight:700;color:rgba(0,0,0,.35);margin-bottom:2px;}
-.tl-answer{font-size:13px;font-weight:700;color:var(--black);}
-.acc-btn{width:100%;background:var(--black);color:var(--white);border:none;border-radius:18px;padding:13px 16px;font-family:'Noto Sans Hebrew',sans-serif;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between;box-shadow:2px 2px 0 var(--orange);transition:transform .12s,box-shadow .12s;}
-.acc-btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--orange);}
+.tl-row{display:flex;gap:12px;padding-bottom:12px;position:relative;}
+.tl-row:not(:last-child)::before{content:'';position:absolute;right:13px;top:36px;width:2px;height:calc(100% - 22px);background:rgba(43,26,138,.1);}
+.tl-dot{width:32px;height:32px;border-radius:50%;background:var(--purple);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;z-index:1;}
+.tl-info{flex:1;padding-top:4px;}
+.tl-station{font-size:10px;font-weight:700;color:rgba(43,26,138,.4);margin-bottom:2px;}
+.tl-answer{font-size:14px;font-weight:700;color:var(--dark);}
+.acc-btn{width:100%;background:var(--dark);color:var(--white);border:none;border-radius:20px;padding:14px 18px;font-family:'Noto Sans Hebrew',sans-serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 16px rgba(43,26,138,.15);transition:all .15s;}
+.acc-btn:hover{transform:translateY(-1px);}
 .acc-arr{transition:transform .25s;}
-.acc-body{display:none;background:var(--white);border-radius:0 0 18px 18px;padding:4px 16px 14px;box-shadow:0 3px 0 2px rgba(0,0,0,.06);}
+.acc-body{display:none;background:var(--white);border-radius:0 0 20px 20px;padding:4px 18px 16px;box-shadow:0 4px 16px rgba(43,26,138,.08);}
 .acc-body.open{display:block;}
-.acc-row{padding:8px 0;border-bottom:1px solid rgba(0,0,0,.05);}
+.acc-row{padding:9px 0;border-bottom:1px solid rgba(43,26,138,.07);}
 .acc-row:last-child{border:none;}
-.acc-station{font-size:10px;font-weight:700;color:rgba(0,0,0,.3);margin-bottom:2px;}
-.acc-answer{font-size:13px;font-weight:700;color:var(--black);}
+.acc-station{font-size:10px;font-weight:700;color:rgba(43,26,138,.35);margin-bottom:2px;}
+.acc-answer{font-size:14px;font-weight:700;color:var(--dark);}
+
+/* ═══ VOICE STUDIO ═══ */
+#screen-voice{background:var(--paper);}
+.vs-hero{background:var(--dark);padding:28px 20px 32px;}
+.vs-back{width:36px;height:36px;background:rgba(255,255,255,.1);border:none;border-radius:50%;font-size:15px;color:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.vs-title{font-size:24px;font-weight:900;color:var(--white);margin-bottom:4px;}
+.vs-sub{font-size:13px;color:rgba(255,255,255,.45);}
+.vs-body{padding:16px 16px 60px;max-width:480px;margin:0 auto;}
+.vs-section-title{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(43,26,138,.35);margin:18px 0 8px;}
+.vs-item{background:var(--white);border-radius:16px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 8px rgba(43,26,138,.06);}
+.vs-item-label{flex:1;font-size:13px;font-weight:600;color:var(--dark);line-height:1.4;}
+.vs-controls{display:flex;gap:6px;flex-shrink:0;}
+.vs-btn{width:36px;height:36px;border:none;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .12s;}
+.btn-rec{background:rgba(107,72,240,.15);color:var(--purple);}
+.btn-rec.recording{background:var(--purple);color:var(--white);animation:recPulse .6s ease-in-out infinite alternate;}
+@keyframes recPulse{from{box-shadow:0 0 0 0 rgba(107,72,240,.4)}to{box-shadow:0 0 0 8px rgba(107,72,240,.0)}}
+.btn-play{background:rgba(184,237,240,.5);color:var(--dark);}
+.btn-play:disabled{opacity:.3;cursor:not-allowed;}
+.btn-del{background:rgba(0,0,0,.06);color:rgba(0,0,0,.35);font-size:12px;}
+.btn-del:disabled{opacity:.3;cursor:not-allowed;}
+.vs-status{width:8px;height:8px;border-radius:50%;background:rgba(43,26,138,.15);flex-shrink:0;}
+.vs-status.has-rec{background:#34d399;}
+.vs-mode-toggle{background:var(--white);border-radius:18px;padding:14px 16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(43,26,138,.06);display:flex;align-items:center;justify-content:space-between;}
+.vs-mode-label{font-size:13px;font-weight:700;color:var(--dark);}
+.vs-mode-sub{font-size:11px;color:rgba(43,26,138,.4);}
+.toggle-sw{width:44px;height:24px;background:rgba(43,26,138,.15);border-radius:var(--r);position:relative;cursor:pointer;transition:background .2s;border:none;flex-shrink:0;}
+.toggle-sw.on{background:var(--purple);}
+.toggle-sw::after{content:'';position:absolute;width:18px;height:18px;background:var(--white);border-radius:50%;top:3px;right:3px;transition:right .2s;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+.toggle-sw.on::after{right:23px;}
+.vs-progress{font-size:12px;font-weight:600;color:rgba(43,26,138,.4);text-align:center;padding:10px 0;}
+#play-all-wrap{margin-bottom:12px;}
+#play-all-btn{width:100%;padding:13px;background:var(--cyan);color:var(--dark);border:none;border-radius:var(--r);font-family:'Noto Sans Hebrew',sans-serif;font-size:14px;font-weight:800;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px;}
+#play-all-progress{margin-top:8px;}
+/* ═══ RESPONSIVE ═══ */
+@media (min-width: 768px) {
+  body { display:flex; justify-content:center; background:#f0f0f8; }
+  .screen { max-width:480px; width:100%; box-shadow:0 20px 60px rgba(43,26,138,.18); }
+  #screen-welcome { min-height:100vh; }
+  .s-canvas { max-width:480px; margin:0 auto; }
+  .cel-card { max-width:360px; }
+}
+@media (min-width:1024px){
+  body { align-items:flex-start; padding:40px 0; min-height:100vh; }
+  .screen { border-radius:28px; overflow:hidden; min-height:calc(100vh - 80px); }
+}
+
 </style>
 </head>
 <body>
@@ -284,10 +306,10 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
 
 <!-- ═══ LANGUAGE SELECT ═══ -->
 <div class="screen active" id="screen-lang">
-  <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:100%;">
+  <div class="lang-inner">
     <div class="lang-logo">🌈</div>
     <div class="lang-title">DayLink</div>
-    <div class="lang-sub">בחר/י שפה — Choose language</div>
+    <div class="lang-sub">בחר/י שפה Choose language</div>
     <div class="lang-grid">
       <button class="lang-btn sel" data-lang="he" onclick="pickLang(this)">
         <span class="lang-flag">🇮🇱</span>
@@ -321,47 +343,83 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
 
 <!-- ═══ WELCOME ═══ -->
 <div class="screen" id="screen-welcome">
-  <div class="w-top">
-    <div class="logo-pill"><div class="logo-dot"></div>DAYLINK</div>
-    <div class="w-headline" id="w-headline">בְּלִי<br><em>לְדַבֵּר.</em><br>בְּלִי לִכְתּוֹב.</div>
-    <div class="w-sub" id="w-sub">מִסְגֶּרֶת בְּטוּחָה לְיַלָדִים לְשַׁתֵּף הוֹרִים</div>
-  </div>
-  <div class="w-body stagger">
-    <div class="bento">
-      <div class="bento-lbl" id="lbl-why">לָמָּה DayLink?</div>
-      <div class="vp-row">
-        <div class="vp-item"><div class="vp-num">1</div><div class="vp-text" id="vp1"><strong>מַרְגִּישׁ כְּמוֹ מִשְׂחָק</strong> — בְּחִירוֹת וְאֶמוֹג'ִי, בְּלִי לִכְתּוֹב מִלָּה.</div></div>
-        <div class="vp-item"><div class="vp-num">2</div><div class="vp-text" id="vp2"><strong>מוּתְאָם לַסְּפֶקְטְרוּם וְ-ADHD</strong> — שְׁאֵלוֹת קוֹנְקְרֵטִיּוֹת וְצְפוּיוֹת.</div></div>
-        <div class="vp-item"><div class="vp-num">3</div><div class="vp-text" id="vp3"><strong>הַהוֹרֶה מְקַבֵּל שְׁאֵלוֹת שִׂיחָה</strong> — שֶׁנִּוְצְרוֹת לְפִי תְּשׁוּבוֹת הַיֶּלֶד.</div></div>
-      </div>
+
+  <!-- HERO -->
+  <div style="background:var(--dark);padding:40px 24px 32px;position:relative;overflow:hidden;">
+    <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border-radius:var(--r);padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.6);margin-bottom:16px;">
+      <span style="width:6px;height:6px;background:var(--yellow);border-radius:50%;display:inline-block"></span>
+      DAYLINK
     </div>
-    <div class="bento">
-      <div class="bento-lbl" id="lbl-age">כַּמָּה שָׁנִים יֵשׁ לְךָ?</div>
-      <div class="age-row">
-        <button class="age-p" data-age="young" onclick="pickAge(this)">גַּן<small>3–5</small></button>
-        <button class="age-p sel" data-age="mid" onclick="pickAge(this)">א–ג<small>6–8</small></button>
-        <button class="age-p" data-age="old" onclick="pickAge(this)">ד–ו<small>9–12</small></button>
+    <h1 style="font-size:36px;font-weight:900;color:var(--white);line-height:1.05;margin-bottom:8px;" id="w-headline">
+      &#x05D1;&#x05B0;&#x05DC;&#x05B4;&#x05D9; &#x05DC;&#x05B0;&#x05D3;&#x05B7;&#x05D1;&#x05BC;&#x05B5;&#x05E8;.<br><span style="color:var(--yellow)">&#x05D1;&#x05B0;&#x05DC;&#x05B4;&#x05D9; &#x05DC;&#x05B4;&#x05DB;&#x05B0;&#x05EA;&#x05BC;&#x05D5;&#x05B9;&#x05D1;.</span>
+    </h1>
+    <p style="font-size:14px;color:rgba(255,255,255,.55);margin-bottom:22px;" id="w-sub">מסגרת בטוחה לשיתוף יומי</p>
+    <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:16px 18px;">
+      <p style="font-size:13px;line-height:1.8;color:rgba(255,255,255,.8);margin:0;">
+        הילדים מבלים את רוב יומם במסגרות חינוכיות. כשהם מגיעים הביתה ואנחנו שואלים
+        <strong style="color:var(--yellow)">"איך היה היום?"</strong>
+        אנחנו מקבלים תשובה אחת: <strong style="color:var(--white)">"כיף."</strong>
+        <br>
+        <strong style="color:var(--white)">DayLink</strong> נותן לילדים דרך פשוטה לספר, ולהורים כלי להתחיל שיחה אמיתית.
+      </p>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div style="background:var(--navy);padding:24px 20px 48px;display:flex;flex-direction:column;gap:24px;flex:1;">
+
+    <div>
+      <div class="sec-lbl" id="lbl-age">כמה שנים יש לך?</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <button class="age-card" data-age="young" onclick="pickAge(this)">
+          <div class="age-card-info">
+            <div class="age-card-range">3–5 שנים</div>
+            <div class="age-card-label">גן</div>
+          </div>
+          <div class="age-card-check">✓</div>
+          <div class="age-blob">🌱</div>
+        </button>
+        <button class="age-card sel" data-age="mid" onclick="pickAge(this)">
+          <div class="age-card-info">
+            <div class="age-card-range">6–8 שנים</div>
+            <div class="age-card-label">כיתות א–ג</div>
+          </div>
+          <div class="age-card-check">✓</div>
+          <div class="age-blob">🌿</div>
+        </button>
+        <button class="age-card" data-age="old" onclick="pickAge(this)">
+          <div class="age-card-info">
+            <div class="age-card-range">9–12 שנים</div>
+            <div class="age-card-label">כיתות ד–ו</div>
+          </div>
+          <div class="age-card-check">✓</div>
+          <div class="age-blob">🌳</div>
+        </button>
       </div>
     </div>
 
-    <div class="bento">
-      <div class="bento-lbl" id="lbl-gender">אַתָּה אוֹ אַתְּ?</div>
-      <div class="age-row">
-        <button class="age-p sel" data-gender="m" onclick="pickGender(this)" id="gbtn-m">👦 זָכָר</button>
-        <button class="age-p" data-gender="f" onclick="pickGender(this)" id="gbtn-f">👧 נְקֵבָה</button>
+    <div>
+      <div class="sec-lbl" id="lbl-gender">אתה או את?</div>
+      <div class="gender-row">
+        <button class="gender-btn sel" data-gender="m" onclick="pickGender(this)" id="gbtn-m">👦 זכר</button>
+        <button class="gender-btn" data-gender="f" onclick="pickGender(this)" id="gbtn-f">👧 נקבה</button>
       </div>
     </div>
-    <div class="bento">
-      <div class="bento-lbl" id="lbl-name">מַה שִׁמְךָ?</div>
-      <input class="name-field" id="name-input" type="text" placeholder="נוֹעָה, יוֹסִי, רִינָה..."/>
+
+    <div>
+      <div class="sec-lbl" id="lbl-name">מה שמך?</div>
+      <input class="name-field" id="name-input" type="text" placeholder="נועה, יוסי, רינה..."/>
     </div>
-    <div class="cta-col">
-      <button class="cta cta-kid" onclick="startKid()" id="btn-kid">אֲנִי הַיֶּלֶד — מַתְחִילִים</button>
-      <button class="cta cta-parent" onclick="showParent()" id="btn-parent">אֲנִי הוֹרֶה — רְאֵה סִיכּוּם</button>
-      <button class="cta" style="background:var(--pink);color:var(--white)" onclick="goTo('screen-voice')">🎙️ הַקְלֵט קוֹל הוֹרֶה</button>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <button class="cta cta-kid" onclick="startKid()" id="btn-kid">אני הילד מתחילים</button>
+      <button class="cta cta-parent" onclick="showParent()" id="btn-parent">אני הורה ראה סיכום</button>
+      <button class="cta" style="background:var(--cyan);color:var(--dark);" onclick="goTo('screen-voice')">🎙️ הקלט קול הורה</button>
     </div>
+
   </div>
 </div>
+
 
 <!-- S1 -->
 <div class="screen" id="screen-s1">
@@ -379,12 +437,12 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
       <button class="speak-btn" onclick="say('q1')">🔊 <span id="lbl-hear"></span></button>
     </div>
     <div class="s-canvas">
-      <div class="emoji-row" id="mood-row">
-        <button class="e-btn" data-key="s1_0" onclick="pE(this,'s1')">😄<span class="e-lbl"></span></button>
-        <button class="e-btn" data-key="s1_1" onclick="pE(this,'s1')">🙂<span class="e-lbl"></span></button>
-        <button class="e-btn" data-key="s1_2" onclick="pE(this,'s1')">😐<span class="e-lbl"></span></button>
-        <button class="e-btn" data-key="s1_3" onclick="pE(this,'s1')">😔<span class="e-lbl"></span></button>
-        <button class="e-btn" data-key="s1_4" onclick="pE(this,'s1')">😣<span class="e-lbl"></span></button>
+      <div class="c-grid" id="mood-row">
+        <button class="c-card" data-key="s1_0" onclick="pC(this,'s1')"><span class="c-icon">😄</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s1_1" onclick="pC(this,'s1')"><span class="c-icon">😢</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s1_2" onclick="pC(this,'s1')"><span class="c-icon">😊</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s1_3" onclick="pC(this,'s1')"><span class="c-icon">🤗</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s1_4" onclick="pC(this,'s1')"><span class="c-icon">🎯</span><span class="c-lbl"></span></button>
       </div>
       <button class="nx-btn" id="nx1" onclick="celebrate(1,'screen-s2')" data-key="btn-next"></button>
     </div>
@@ -407,15 +465,16 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
       <button class="speak-btn" onclick="say('q2')">🔊 <span id="lbl-hear2"></span></button>
     </div>
     <div class="s-canvas">
+      <p style="font-size:12px;font-weight:600;color:rgba(43,26,138,.45);margin-bottom:14px;align-self:flex-start" id="multi-hint2">אפשר לבחור כמה שרוצים</p>
       <div class="c-grid">
-        <button class="c-card" data-key="s2_0" onclick="pC(this,'s2')"><span class="c-icon">🏃</span><span class="c-lbl"></span></button>
-        <button class="c-card" data-key="s2_1" onclick="pC(this,'s2')"><span class="c-icon">🥪</span><span class="c-lbl"></span></button>
-        <button class="c-card" data-key="s2_2" onclick="pC(this,'s2')"><span class="c-icon">🧘</span><span class="c-lbl"></span></button>
-        <button class="c-card" data-key="s2_3" onclick="pC(this,'s2')"><span class="c-icon">💬</span><span class="c-lbl"></span></button>
-        <button class="c-card" data-key="s2_4" onclick="pC(this,'s2')"><span class="c-icon">📖</span><span class="c-lbl"></span></button>
-        <button class="c-card" data-key="s2_5" onclick="pC(this,'s2')"><span class="c-icon">⚡</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_0" onclick="pM2(this)"><span class="c-icon">🏃</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_1" onclick="pM2(this)"><span class="c-icon">🥪</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_2" onclick="pM2(this)"><span class="c-icon">🧘</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_3" onclick="pM2(this)"><span class="c-icon">💬</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_4" onclick="pM2(this)"><span class="c-icon">📖</span><span class="c-lbl"></span></button>
+        <button class="c-card" data-key="s2_5" onclick="pM2(this)"><span class="c-icon">⚡</span><span class="c-lbl"></span></button>
       </div>
-      <button class="nx-btn" id="nx2" onclick="celebrate(2,'screen-s3')" data-key="btn-next"></button>
+      <button class="nx-btn show" id="nx2" onclick="celebrate(2,'screen-s3')" data-key="btn-next"></button>
     </div>
   </div>
 </div>
@@ -459,8 +518,8 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
     </div>
   </div>
   <div class="s-body">
-    <div class="s-band" style="background:var(--orange)">
-      <div class="s-tag" style="background:var(--white);color:var(--black)"><div class="s-num" style="background:var(--orange)">4</div><span id="sname4"></span></div>
+    <div class="s-band" style="background:var(--cyan)">
+      <div class="s-tag"><div class="s-num" style="background:var(--cyan)">4</div><span id="sname4"></span></div>
       <div class="s-q" id="q4"></div>
       <button class="speak-btn" onclick="say('q4')">🔊 <span id="lbl-hear4"></span></button>
     </div>
@@ -511,7 +570,7 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
   <div class="vs-hero">
     <button class="vs-back" onclick="goTo('screen-welcome')">←</button>
     <div class="vs-title">🎙️ סְטוּדְיוֹ קוֹל</div>
-    <div class="vs-sub">הַקְלֵט אֶת הַקּוֹל שֶׁלְּךָ — הַיֶּלֶד יִשְׁמַע אוֹתְךָ</div>
+    <div class="vs-sub">הַקְלֵט אֶת הַקּוֹל שֶׁלְּךָ הַיֶּלֶד יִשְׁמַע אוֹתְךָ</div>
   </div>
   <div class="vs-body">
 
@@ -529,12 +588,12 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
       <button onclick="exportRecordings()" style="flex:1;padding:11px;background:var(--black);color:var(--white);border:none;border-radius:var(--r);font-family:'Noto Sans Hebrew',sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:2px 2px 0 rgba(0,0,0,.15)">⬇ יַצֵּא קוֹבֶץ גִּיבּוּי</button>
       <button onclick="importRecordings()" style="flex:1;padding:11px;background:var(--yellow);color:var(--black);border:none;border-radius:var(--r);font-family:'Noto Sans Hebrew',sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:2px 2px 0 rgba(0,0,0,.15)">⬆ יְבָא הַקְלָטוֹת</button>
     </div>
-    <div style="font-size:11px;color:rgba(0,0,0,.35);text-align:center;margin-bottom:8px;font-weight:500">הַקּוֹבֶץ שׁוֹמֵר אֶת כָּל הַהַקְלָטוֹת — אֶפְשָׁר לְהַעֲבִיר לְמַכְשִׁיר אַחֵר</div>
+    <div style="font-size:11px;color:rgba(0,0,0,.35);text-align:center;margin-bottom:8px;font-weight:500">הַקּוֹבֶץ שׁוֹמֵר אֶת כָּל הַהַקְלָטוֹת אֶפְשָׁר לְהַעֲבִיר לְמַכְשִׁיר אַחֵר</div>
 
     <div class="vs-mode-toggle">
       <div>
         <div class="vs-mode-label">הַשְׁתַּמֵּשׁ בְּקוֹל מֻקְלָט</div>
-        <div class="vs-mode-sub">כְּשֶׁיֵּשׁ הַקְלָטָה — תְּנַגֵּן אוֹתָהּ בִּמְקוֹם הָרוֹבּוֹט</div>
+        <div class="vs-mode-sub">כְּשֶׁיֵּשׁ הַקְלָטָה תְּנַגֵּן אוֹתָהּ בִּמְקוֹם הָרוֹבּוֹט</div>
       </div>
       <button class="toggle-sw on" id="voice-toggle" onclick="toggleVoiceMode()"></button>
     </div>
@@ -562,10 +621,17 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
 
 <!-- DONE -->
 <div class="screen" id="screen-done">
+  <!-- subtle doodles -->
+  <svg style="position:absolute;top:20px;right:20px;opacity:.15;pointer-events:none" width="40" height="40" viewBox="0 0 40 40" fill="none">
+    <path d="M20 4 L22 14 L32 8 L24 18 L36 20 L24 22 L32 32 L22 26 L20 36 L18 26 L8 32 L16 22 L4 20 L16 18 L8 8 L18 14 Z" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg style="position:absolute;bottom:30px;left:24px;opacity:.12;pointer-events:none" width="36" height="36" viewBox="0 0 36 36" fill="none">
+    <path d="M18 4 C20 10 28 8 28 16 C28 24 20 30 18 32 C16 30 8 24 8 16 C8 8 16 10 18 4Z" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </svg>
   <div class="done-burst">🎊</div>
   <div class="done-h" id="done-h">כָּל הַכָּבוֹד!</div>
   <p class="done-sub"><span id="done-sub-text">שָׁלַחְתִּי לְאַמָּא וְאַבָּא אֶת סִיכּוּם הַיּוֹם שֶׁלְּךָ.</span></p>
-  <button class="cta cta-parent" style="max-width:280px" onclick="showParent()">אֲנִי הוֹרֶה — רְאֵה מַה הַיֶּלֶד סִיפֵּר</button>
+  <button class="cta cta-parent" style="max-width:280px" onclick="showParent()">אֲנִי הוֹרֶה רְאֵה מַה הַיֶּלֶד סִיפֵּר</button>
 </div>
 
 <!-- PARENT -->
@@ -594,12 +660,11 @@ body{font-family:'Noto Sans Hebrew',sans-serif;background:var(--yellow);min-heig
       <div class="q-stack" id="q-stack"></div>
     </div>
     <div>
-      <div class="p-sec-lbl">מַסַּע הַיּוֹם — 5 תַּחֲנוֹת</div>
+      <div class="p-sec-lbl">מַסַּע הַיּוֹם 5 תַּחֲנוֹת</div>
       <div class="tl" id="tl"></div>
     </div>
     <div>
-      <button class="acc-btn" onclick="toggleAcc()"><span>כָּל הַתְּשׁוּבוֹת הַמְּלֵאוֹת</span><span class="acc-arr" id="acc-arr">▼</span></button>
-      <div class="acc-body" id="acc-body"></div>
+
     </div>
   </div>
 </div>
@@ -610,44 +675,44 @@ const st={name:'',age:'mid',lang:'he',gender:'m',s1:'',s2:'',s3:'',s4:[],s5:''};
 // ── TRANSLATIONS ──
 const T={
   he:{
-    step:['תַּחֲנָה 1 מִתּוֹךְ 5','תַּחֲנָה 2 מִתּוֹךְ 5','תַּחֲנָה 3 מִתּוֹךְ 5','תַּחֲנָה 4 מִתּוֹךְ 5','תַּחֲנָה 5 — כִּמְעַט סִיַּמְתָּ!'],
-    sname:['הַגָּעָה לַגַּן / בֵּית סֵפֶר','הַפְסָקָה','שִׁעוּרִים','מִשְׂחָק עִם חֲבֵרִים','סוֹף יוֹם — הַדֶּרֶךְ הַבַּיְתָה'],
+    step:['תַּחֲנָה 1 מִתּוֹךְ 5','תַּחֲנָה 2 מִתּוֹךְ 5','תַּחֲנָה 3 מִתּוֹךְ 5','תַּחֲנָה 4 מִתּוֹךְ 5','תַּחֲנָה 5 כִּמְעַט סִיַּמְתָּ!'],
+    sname:['הַגָּעָה לַגַּן / בֵּית סֵפֶר','הַפְסָקָה','שִׁעוּרִים','מִשְׂחָק עִם חֲבֵרִים','סוֹף יוֹם הַדֶּרֶךְ הַבַּיְתָה'],
     hear:'שְׁמַע אֶת הַשְּׁאֵלָה',
     q:{
       young:{
-        m:['בָּאתָ הַיּוֹם — אֵיךְ הָיָה?','מֶה עָשִׂיתָ בַּהַפְסָקָה?','אֵיךְ הָיָה בַּשִּׁעוּר?','עִם מִי שִׂיחַקְתָּ?','אֵיךְ הָיָה הַיּוֹם שֶׁלְּךָ?'],
-        f:['בָּאת הַיּוֹם — אֵיךְ הָיָה?','מֶה עָשִׂית בַּהַפְסָקָה?','אֵיךְ הָיָה בַּשִּׁעוּר?','עִם מִי שִׂיחַקְתְּ?','אֵיךְ הָיָה הַיּוֹם שֶׁלָּךְ?']
+        m:['אֵיךְ הָיָה הַבֹּקֶר שֶׁהִגַּעְתָּ?','מֶה עָשִׂיתָ בַּהַפְסָקָה?','אֵיךְ הָיָה בַּשִּׁעוּר?','עִם מִי שִׂיחַקְתָּ?','אֵיךְ הָיָה הַיּוֹם שֶׁלְּךָ?'],
+        f:['אֵיךְ הָיָה הַבֹּקֶר שֶׁהִגַּעְתְּ?','מֶה עָשִׂית בַּהַפְסָקָה?','אֵיךְ הָיָה בַּשִּׁעוּר?','עִם מִי שִׂיחַקְתְּ?','אֵיךְ הָיָה הַיּוֹם שֶׁלָּךְ?']
       },
       mid:{
-        m:['אֵיךְ הָיָה לְךָ הַבֹּקֶר בְּבֵית הַסֵּפֶר?','מַה עָשִׂיתָ בַּהַפְסָקָה הַיּוֹם?','אֵיךְ הָיָה בַּשִּׁעוּר הַיּוֹם?','עִם מִי שִׂיחַקְתָּ הַיּוֹם?','אֵיךְ עָבַר עָלֶיךָ סַךְ הַכֹּל הַיּוֹם?'],
-        f:['אֵיךְ הָיָה לָךְ הַבֹּקֶר בְּבֵית הַסֵּפֶר?','מַה עָשִׂית בַּהַפְסָקָה הַיּוֹם?','אֵיךְ הָיָה בַּשִּׁעוּר הַיּוֹם?','עִם מִי שִׂיחַקְתְּ הַיּוֹם?','אֵיךְ עָבַר עָלַיִךְ סַךְ הַכֹּל הַיּוֹם?']
+        m:['אֵיךְ הָיָה הַבֹּקֶר שֶׁהִגַּעְתָּ לְבֵית הַסֵּפֶר?','מַה עָשִׂיתָ בַּהַפְסָקָה הַיּוֹם?','אֵיזֶה שִׁעוּר הָיָה הֲכִי מְרַתֵּק הַיּוֹם?','עִם מִי שִׂיחַקְתָּ הַיּוֹם?','אֵיךְ עָבַר עָלֶיךָ סַךְ הַכֹּל הַיּוֹם?'],
+        f:['אֵיךְ הָיָה הַבֹּקֶר שֶׁהִגַּעְתְּ לְבֵית הַסֵּפֶר?','מַה עָשִׂית בַּהַפְסָקָה הַיּוֹם?','אֵיזֶה שִׁעוּר הָיָה הֲכִי מְרַתֵּק הַיּוֹם?','עִם מִי שִׂיחַקְתְּ הַיּוֹם?','אֵיךְ עָבַר עָלַיִךְ סַךְ הַכֹּל הַיּוֹם?']
       },
       old:{
-        m:['אֵיךְ הִתְחִיל הַיּוֹם בְּבֵית הַסֵּפֶר?','מַה עָשִׂיתָ בַּהַפְסָקָה?','אֵיךְ הָיָה בַּשִּׁעוּר הַיּוֹם?','עִם מִי בִּלִּיתָ הַיּוֹם?','אֵיךְ עָבַר עָלֶיךָ סַךְ הַכֹּל הַיּוֹם?'],
-        f:['אֵיךְ הִתְחִיל הַיּוֹם בְּבֵית הַסֵּפֶר?','מַה עָשִׂית בַּהַפְסָקָה?','אֵיךְ הָיָה בַּשִּׁעוּר הַיּוֹם?','עִם מִי בִּלִּית הַיּוֹם?','אֵיךְ עָבַר עָלַיִךְ סַךְ הַכֹּל הַיּוֹם?']
+        m:['אֵיךְ הָיָה הַבֹּקֶר שֶׁהִגַּעְתָּ?','מַה עָשִׂיתָ בַּהַפְסָקָה?','אֵיזֶה שִׁעוּר הָיָה הֲכִי מְרַתֵּק הַיּוֹם?','עִם מִי בִּלִּיתָ הַיּוֹם?','אֵיךְ עָבַר עָלֶיךָ סַךְ הַכֹּל הַיּוֹם?'],
+        f:['אֵיךְ הָיָה הַבֹּקֶר שֶׁהִגַּעְתְּ?','מַה עָשִׂית בַּהַפְסָקָה?','אֵיזֶה שִׁעוּר הָיָה הֲכִי מְרַתֵּק הַיּוֹם?','עִם מִי בִּלִּית הַיּוֹם?','אֵיךְ עָבַר עָלַיִךְ סַךְ הַכֹּל הַיּוֹם?']
       }
     },
     celebrate:{
       m:[
-        {e:'🧚',t:'יָפֶה מְאֹד!',s:'סִיַּמְתָּ תַּחֲנָה 1! הַפַּיָּה שְׂמֵחָה אִתְּךָ ✨'},
-        {e:'🌟',t:'מַמָּשׁ כֵּן!',s:'תַּחֲנָה 2 בַּשַּׂק! שְׁנֵי כּוֹכָבִים בִּשְׁבִילְךָ ⭐⭐'},
-        {e:'🦄',t:'וָאוּ!',s:'תַּחֲנָה 3 הוּשְׁלְמָה! חַד-הַקֶּרֶן גֵּאֶה בְּךָ 🦄'},
-        {e:'🎊',t:'מַה מְגַנִּיב!',s:'תַּחֲנָה 4 — עוֹד תַּחֲנָה אַחַת וְסִיַּמְתָּ! 🎊'},
+        {e:'🧚',t:'יָפֶה מְאֹד!',s:'סִיַּמְתֶּם אֶת תַּחֲנָה 1! בּוֹאוּ נְמַשִּׁיךְ ✨'},
+        {e:'🌟',t:'יוּפִי!!!',s:'תַּחֲנָה מִסְפָּר 2 הִסְתַּיְּמָה בְּהַצְלָחָה!'},
+        {e:'🦄',t:'אַלּוּפִים!',s:'תַּחֲנָה מִסְפָּר 3 הוּשְׁלְמָה! כָּל הַכָּבוֹד!'},
+        {e:'🎊',t:'מַגְנִיב מְאֹד!',s:'הִתְקַדַּמְתֶּם עוֹד שְׁלַב! נוֹתְרָה עוֹד תַּחֲנָה אַחַת!'},
       ],
       f:[
-        {e:'🧚',t:'יָפֶה מְאֹד!',s:'סִיַּמְתְּ תַּחֲנָה 1! הַפַּיָּה שְׂמֵחָה אִתָּךְ ✨'},
-        {e:'🌟',t:'מַמָּשׁ כֵּן!',s:'תַּחֲנָה 2 בַּשַּׂק! שְׁנֵי כּוֹכָבִים בִּשְׁבִילֵךְ ⭐⭐'},
-        {e:'🦄',t:'וָאוּ!',s:'תַּחֲנָה 3 הוּשְׁלְמָה! חַד-הַקֶּרֶן גֵּאֶה בָּךְ 🦄'},
-        {e:'🎊',t:'מַה מְגַנִּיב!',s:'תַּחֲנָה 4 — עוֹד תַּחֲנָה אַחַת וְסִיַּמְתְּ! 🎊'},
+        {e:'🧚',t:'יָפֶה מְאֹד!',s:'סִיַּמְתֶּם אֶת תַּחֲנָה 1! בּוֹאוּ נְמַשִּׁיךְ ✨'},
+        {e:'🌟',t:'יוּפִי!!!',s:'תַּחֲנָה מִסְפָּר 2 הִסְתַּיְּמָה בְּהַצְלָחָה!'},
+        {e:'🦄',t:'אַלּוּפִים!',s:'תַּחֲנָה מִסְפָּר 3 הוּשְׁלְמָה! כָּל הַכָּבוֹד!'},
+        {e:'🎊',t:'מַגְנִיב מְאֹד!',s:'הִתְקַדַּמְתֶּם עוֹד שְׁלַב! נוֹתְרָה עוֹד תַּחֲנָה אַחַת!'},
       ]
     },
     answers:{
       s1:[
-        {lbl:'שָׂמֵחַ',speak:'שָׂמֵחַ מְאֹד',val:'שָׂמֵחַ'},
-        {lbl:'בְּסֵדֶר',speak:'בְּסֵדֶר',val:'בְּסֵדֶר'},
-        {lbl:'כָּכָה',speak:'כָּכָה כָּכָה',val:'כָּכָה כָּכָה'},
-        {lbl:'עָצוּב',speak:'עָצוּב',val:'עָצוּב'},
-        {lbl:'קָשֶׁה',speak:'הָיָה קָשֶׁה',val:'הָיָה קָשֶׁה'},
+        {lbl:'הָיָה לִי כֵּיף לִפְגֹּשׁ חֲבֵרִים',speak:'הָיָה לִי כֵּיף לִפְגֹּשׁ אֶת הַחֲבֵרִים בַּבֹּקֶר',val:'הָיָה לִי כֵּיף לִפְגֹּשׁ חֲבֵרִים'},
+        {lbl:'הָיָה לִי קָשֶׁה לְהִפָּרֵד מֵאִמָּא וְאַבָּא',speak:'הָיָה לִי קָשֶׁה לְהִפָּרֵד מֵאִמָּא וְאַבָּא',val:'הָיָה לִי קָשֶׁה לְהִפָּרֵד'},
+        {lbl:'נִכְנַסְתִּי לַכִּיתָּה בְּשִׂמְחָה',speak:'נִכְנַסְתִּי לַכִּיתָּה בְּשִׂמְחָה',val:'נִכְנַסְתִּי בְּשִׂמְחָה'},
+        {lbl:'פָּגַשְׁתִּי אֶת הַמּוֹרָה בַּשַּׁעַר',speak:'פָּגַשְׁתִּי אֶת הַמּוֹרָה בַּשַּׁעַר',val:'פָּגַשְׁתִּי אֶת הַמּוֹרָה'},
+        {lbl:'שִׂיחַקְתִּי לִפְנֵי שֶׁהִתְחִיל הַשִּׁעוּר',speak:'הָיָה לִי זְמַן לְשַׂחֵק לִפְנֵי שֶׁהִתְחִיל הַשִּׁעוּר',val:'שִׂיחַקְתִּי לִפְנֵי הַשִּׁעוּר'},
       ],
       s2:[
         {lbl:'רַצְתִּי וְשִׂיחַקְתִּי',speak:'רַצְתִּי וְשִׂיחַקְתִּי',val:'רַצְתִּי וְשִׂיחַקְתִּי'},
@@ -658,43 +723,43 @@ const T={
         {lbl:'קָרָה מַשֶּׁהוּ',speak:'קָרָה מַשֶּׁהוּ מְיֻחָד',val:'קָרָה מַשֶּׁהוּ'},
       ],
       s3:[
-        {lbl:'הָיָה כֵּיף',speak:'הָיָה כֵּיף',val:'הָיָה כֵּיף'},
-        {lbl:'הָיָה קָשֶׁה',speak:'הָיָה קָשֶׁה',val:'הָיָה קָשֶׁה'},
-        {lbl:'הִצְלַחְתִּי!',speak:'הִצְלַחְתִּי',val:'הִצְלַחְתִּי'},
-        {lbl:'לֹא הֵבַנְתִּי',speak:'לֹא הֵבַנְתִּי',val:'לֹא הֵבַנְתִּי'},
-        {lbl:'הָיִיתִי עָיֵף',speak:'הָיִיתִי עָיֵף',val:'הָיִיתִי עָיֵף'},
-        {lbl:'בְּסֵדֶר',speak:'הָיָה בְּסֵדֶר',val:'בְּסֵדֶר'},
+        {lbl:'הָיָה שִׁעוּר שֶׁמַּמָּשׁ אָהַבְתִּי',speak:'הָיָה שִׁעוּר שֶׁמַּמָּשׁ אָהַבְתִּי הַיּוֹם',val:'הָיָה שִׁעוּר שֶׁאָהַבְתִּי'},
+        {lbl:'הִצְלַחְתִּי בְּתַרְגִּיל שֶׁהָיָה קָשֶׁה',speak:'הִצְלַחְתִּי בְּתַרְגִּיל שֶׁהָיָה קָשֶׁה',val:'הִצְלַחְתִּי בְּתַרְגִּיל קָשֶׁה'},
+        {lbl:'הָיָה שִׁעוּר שֶׁלֹּא הֵבַנְתִּי',speak:'הָיָה שִׁעוּר שֶׁלֹּא הֵבַנְתִּי',val:'לֹא הֵבַנְתִּי שִׁעוּר'},
+        {lbl:'לֹא הִצְלַחְתִּי לְהִתְרַכֵּז',speak:'לֹא הִצְלַחְתִּי לְהִתְרַכֵּז בַּשִּׁעוּרִים',val:'לֹא הִתְרַכַּזְתִּי'},
+        {lbl:'הָיִיתִי עָיֵף בְּמַהֲלַךְ הַשִּׁעוּרִים',speak:'הָיִיתִי עָיֵף בְּמַהֲלַךְ הַשִּׁעוּרִים',val:'הָיִיתִי עָיֵף'},
+        {lbl:'הַכֹּל הָיָה בְּסֵדֶר, שִׁעוּרִים רְגִילִים',speak:'הַכֹּל הָיָה בְּסֵדֶר, שִׁעוּרִים רְגִילִים',val:'שִׁעוּרִים רְגִילִים'},
       ],
       s4:[
         {lbl:'חָבֵר טוֹב',speak:'שִׂיחַקְתִּי עִם חָבֵר טוֹב',val:'חָבֵר טוֹב'},
         {lbl:'עִם כּוּלָּם',speak:'שִׂיחַקְתִּי עִם כּוּלָּם',val:'עִם כּוּלָּם'},
-        {lbl:'עָדַפְתִּי לְבַד',speak:'עָדַפְתִּי לְבַד',val:'עָדַפְתִּי לְבַד'},
+        {lbl:'הֶעֱדַפְתִּי לִהְיוֹת לְבַד',speak:'הֶעֱדַפְתִּי לִהְיוֹת לְבַד',val:'הֶעֱדַפְתִּי לִהְיוֹת לְבַד'},
         {lbl:'כָּעַסְתִּי',speak:'כָּעַסְתִּי',val:'כָּעַסְתִּי'},
-        {lbl:'לֹא מָצָאתִי עִם מִי',speak:'לֹא מָצָאתִי עִם מִי לִשְׂחֹק',val:'לֹא מָצָאתִי עִם מִי לִשְׂחֹק'},
+        {lbl:'לֹא מָצָאתִי עִם מִי לְשַׂחֵק',speak:'לֹא מָצָאתִי עִם מִי לְשַׂחֵק',val:'לֹא מָצָאתִי עִם מִי לְשַׂחֵק'},
         {lbl:'הָיָה כֵּיף!',speak:'הָיָה כֵּיף מְאֹד',val:'הָיָה כֵּיף'},
       ],
       s5:[
-        {lbl:'קָרָה מַשֶּׁהוּ מְגַנִּיב!',speak:'קָרָה מַשֶּׁהוּ מְגַנִּיב',val:'קָרָה מַשֶּׁהוּ מְגַנִּיב'},
+        {lbl:'קָרָה מַשֶּׁהוּ מַגְנִיב!',speak:'קָרָה מַשֶּׁהוּ מַגְנִיב',val:'קָרָה מַשֶּׁהוּ מַגְנִיב'},
         {lbl:'קָרָה מַשֶּׁהוּ עָצוּב',speak:'קָרָה מַשֶּׁהוּ עָצוּב',val:'קָרָה מַשֶּׁהוּ עָצוּב'},
-        {lbl:'הָיָה הֲכִי כֵּיף לִשְׂחֹק',speak:'הָיָה הֲכִי כֵּיף לִשְׂחֹק',val:'הָיָה הֲכִי כֵּיף לִשְׂחֹק'},
-        {lbl:'הַכֹּל בְּסֵדֶר',speak:'הַכֹּל בְּסֵדֶר',val:'הַכֹּל בְּסֵדֶר'},
+        {lbl:'הָיָה הֲכִי כֵּיף לְשַׂחֵק',speak:'הָיָה הֲכִי כֵּיף לְשַׂחֵק',val:'הָיָה הֲכִי כֵּיף לְשַׂחֵק'},
+        {lbl:'הַכֹּל הָיָה בְּסֵדֶר גָּמוּר',speak:'הַכֹּל הָיָה בְּסֵדֶר גָּמוּר',val:'הַכֹּל הָיָה בְּסֵדֶר גָּמוּר'},
       ]
     },
     ui:{
       next:'הַבָּא ←', finish:'סִיּוּם 🎉', multiHint:'אֶפְשָׁר לִבְחוֹר כַּמָּה',
-      btnKid:'אֲנִי הַיֶּלֶד — מַתְחִילִים', btnParent:'אֲנִי הוֹרֶה — רְאֵה סִיכּוּם', btnVoice:'🎙️ הַקְלֵט קוֹל הוֹרֶה',
+      btnKid:'אֲנִי הַיֶּלֶד מַתְחִילִים', btnParent:'אֲנִי הוֹרֶה רְאֵה סִיכּוּם', btnVoice:'🎙️ הַקְלֵט קוֹל הוֹרֶה',
       headline:'בְּלִי לְדַבֵּר.',subline:'מִסְגֶּרֶת בְּטוּחָה לְיַלָדִים לְשַׁתֵּף הוֹרִים',
       lblWhy:'לָמָּה DayLink?',lblAge:'כַּמָּה שָׁנִים יֵשׁ לְךָ?',lblGender:'אַתָּה אוֹ אַתְּ?',lblName:'מַה שִׁמְךָ?',
       genderM:'👦 זָכָר',genderF:'👧 נְקֵבָה',
-      vp1:'<strong>מַרְגִּישׁ כְּמוֹ מִשְׂחָק</strong> — בְּחִירוֹת וְאֶמוֹג\'ִי, בְּלִי לִכְתּוֹב מִלָּה.',
-      vp2:'<strong>מוּתְאָם לַסְּפֶקְטְרוּם וְ-ADHD</strong> — שְׁאֵלוֹת קוֹנְקְרֵטִיּוֹת וְצְפוּיוֹת.',
-      vp3:'<strong>הַהוֹרֶה מְקַבֵּל שְׁאֵלוֹת שִׂיחָה</strong> — שֶׁנִּוְצְרוֹת לְפִי תְּשׁוּבוֹת הַיֶּלֶד.',
+      vp1:'<strong>מַרְגִּישׁ כְּמוֹ מִשְׂחָק</strong> בְּחִירוֹת וְאֶמוֹג\'ִי, בְּלִי לִכְתּוֹב מִלָּה.',
+      vp2:'<strong>מוּתְאָם לַסְּפֶקְטְרוּם וְ-ADHD</strong> שְׁאֵלוֹת קוֹנְקְרֵטִיּוֹת וְצְפוּיוֹת.',
+      vp3:'<strong>הַהוֹרֶה מְקַבֵּל שְׁאֵלוֹת שִׂיחָה</strong> שֶׁנִּוְצְרוֹת לְפִי תְּשׁוּבוֹת הַיֶּלֶד.',
       namePlaceholder:'נוֹעָה, יוֹסִי, רִינָה...',ageLabels:['גַּן|3–5','א–ג|6–8','ד–ו|9–12'],done:'כָּל הַכָּבוֹד!',doneSub:'שָׁלַחְתִּי לְאַמָּא וְאַבָּא אֶת סִיכּוּם הַיּוֹם שֶׁלְּךָ.'
     },
     voiceLang:'he-IL'
   },
   ar:{
-    step:['المحطة 1 من 5','المحطة 2 من 5','المحطة 3 من 5','المحطة 4 من 5','المحطة 5 — اوشكت على الانتهاء!'],
+    step:['المحطة 1 من 5','المحطة 2 من 5','المحطة 3 من 5','المحطة 4 من 5','المحطة 5 اوشكت على الانتهاء!'],
     sname:['الوصول للروضة / المدرسة','الاستراحة','الدروس','اللعب مع الأصدقاء','نهاية اليوم'],
     hear:'استمع للسؤال',
     q:{
@@ -716,13 +781,13 @@ const T={
         {e:'🧚',t:'أحسنت!',s:'انتهيت من المحطة 1! الجنية سعيدة بك ✨'},
         {e:'🌟',t:'رائع!',s:'المحطة 2 خلصت! نجمتان لك ⭐⭐'},
         {e:'🦄',t:'واو!',s:'المحطة 3 انتهت! وحيد القرن فخور بك 🦄'},
-        {e:'🎊',t:'ممتاز!',s:'محطة 4 — محطة واحدة بعدها تنتهي! 🎊'},
+        {e:'🎊',t:'ممتاز!',s:'محطة 4 محطة واحدة بعدها تنتهي! 🎊'},
       ],
       f:[
         {e:'🧚',t:'أحسنتِ!',s:'انتهيتِ من المحطة 1! الجنية سعيدة بكِ ✨'},
         {e:'🌟',t:'رائع!',s:'المحطة 2 خلصت! نجمتان لكِ ⭐⭐'},
         {e:'🦄',t:'واو!',s:'المحطة 3 انتهت! وحيد القرن فخور بكِ 🦄'},
-        {e:'🎊',t:'ممتاز!',s:'محطة 4 — محطة واحدة بعدها تنتهي! 🎊'},
+        {e:'🎊',t:'ممتاز!',s:'محطة 4 محطة واحدة بعدها تنتهي! 🎊'},
       ]
     },
     answers:{
@@ -732,18 +797,18 @@ const T={
       s4:[{lbl:'صديق',speak:'لعبت مع صديق',val:'صديق'},{lbl:'مع الجميع',speak:'لعبت مع الجميع',val:'مع الجميع'},{lbl:'وحدي',speak:'فضلت اللعب وحدي',val:'وحدي'},{lbl:'زعلت',speak:'زعلت',val:'زعلت'},{lbl:'ما لقيت أحد',speak:'لم أجد أحداً',val:'ما لقيت أحد'},{lbl:'كان ممتعاً!',speak:'كان ممتعاً جداً',val:'كان ممتعاً'}],
       s5:[{lbl:'شيء رائع!',speak:'حدث شيء رائع',val:'شيء رائع'},{lbl:'شيء حزين',speak:'حدث شيء حزين',val:'شيء حزين'},{lbl:'أكثر شيء ممتع',speak:'كان أكثر شيء ممتعاً',val:'أكثر شيء ممتع'},{lbl:'كل شيء بخير',speak:'كل شيء بخير',val:'كل شيء بخير'}]
     },
-    ui:{next:'التالي ←',finish:'انتهينا 🎉',multiHint:'يمكنك اختيار أكثر من واحد',btnKid:'أنا الطفل — نبدأ',btnParent:'أنا الوالد — رؤية الملخص',btnVoice:'🎙️ تسجيل صوت الوالد',
+    ui:{next:'التالي ←',finish:'انتهينا 🎉',multiHint:'يمكنك اختيار أكثر من واحد',btnKid:'أنا الطفل نبدأ',btnParent:'أنا الوالد رؤية الملخص',btnVoice:'🎙️ تسجيل صوت الوالد',
       headline:'بدون كلام.',subline:'مساحة آمنة للأطفال لمشاركة يومهم مع الوالدين',
       lblWhy:'لماذا DayLink؟',lblAge:'كم عمرك؟',lblGender:'أنت ولد أم بنت؟',lblName:'ما اسمك؟',
       genderM:'👦 ولد',genderF:'👧 بنت',
-      vp1:'<strong>يبدو كلعبة</strong> — اختيارات وإيموجي، بدون كتابة.',
-      vp2:'<strong>مناسب لطيف التوحد وADHD</strong> — أسئلة واضحة ومتوقعة.',
-      vp3:'<strong>الوالد يحصل على أسئلة للحوار</strong> — تُنشأ حسب إجابات الطفل.',
+      vp1:'<strong>يبدو كلعبة</strong> اختيارات وإيموجي، بدون كتابة.',
+      vp2:'<strong>مناسب لطيف التوحد وADHD</strong> أسئلة واضحة ومتوقعة.',
+      vp3:'<strong>الوالد يحصل على أسئلة للحوار</strong> تُنشأ حسب إجابات الطفل.',
       namePlaceholder:'نور، يوسف، رنا...',ageLabels:['روضة|3–5','1–3|6–8','4–6|9–12'],done:'أحسنت!',doneSub:'أرسلت لأمك وأبوك ملخص يومك.'},
     voiceLang:'ar-SA'
   },
   ru:{
-    step:['Станция 1 из 5','Станция 2 из 5','Станция 3 из 5','Станция 4 из 5','Станция 5 — почти готово!'],
+    step:['Станция 1 из 5','Станция 2 из 5','Станция 3 из 5','Станция 4 из 5','Станция 5 почти готово!'],
     sname:['Приход в школу','Перемена','Уроки','Игра с друзьями','Конец дня'],
     hear:'Прослушать вопрос',
     q:{
@@ -765,13 +830,13 @@ const T={
         {e:'🧚',t:'Молодец!',s:'Станция 1 пройдена! Фея рада за тебя ✨'},
         {e:'🌟',t:'Отлично!',s:'Станция 2 готова! Две звезды для тебя ⭐⭐'},
         {e:'🦄',t:'Вау!',s:'Станция 3 завершена! Единорог гордится тобой 🦄'},
-        {e:'🎊',t:'Супер!',s:'Станция 4 — ещё одна и готово! 🎊'},
+        {e:'🎊',t:'Супер!',s:'Станция 4 ещё одна и готово! 🎊'},
       ],
       f:[
         {e:'🧚',t:'Молодец!',s:'Станция 1 пройдена! Фея рада за тебя ✨'},
         {e:'🌟',t:'Отлично!',s:'Станция 2 готова! Две звезды для тебя ⭐⭐'},
         {e:'🦄',t:'Вау!',s:'Станция 3 завершена! Единорог гордится тобой 🦄'},
-        {e:'🎊',t:'Супер!',s:'Станция 4 — ещё одна и готово! 🎊'},
+        {e:'🎊',t:'Супер!',s:'Станция 4 ещё одна и готово! 🎊'},
       ]
     },
     answers:{
@@ -781,18 +846,18 @@ const T={
       s4:[{lbl:'Друг',speak:'Я играл с другом',val:'Друг'},{lbl:'Все',speak:'Я играл со всеми',val:'Все'},{lbl:'Один',speak:'Я предпочёл играть один',val:'Один'},{lbl:'Рассердился',speak:'Я рассердился',val:'Рассердился'},{lbl:'Никого не нашёл',speak:'Не нашёл с кем играть',val:'Никого не нашёл'},{lbl:'Было весело!',speak:'Было очень весело',val:'Было весело'}],
       s5:[{lbl:'Что-то классное!',speak:'Случилось что-то классное',val:'Что-то классное'},{lbl:'Что-то грустное',speak:'Случилось что-то грустное',val:'Что-то грустное'},{lbl:'Самое весёлое',speak:'Было самое весёлое',val:'Самое весёлое'},{lbl:'Всё хорошо',speak:'Всё хорошо',val:'Всё хорошо'}]
     },
-    ui:{next:'Далее ←',finish:'Готово 🎉',multiHint:'Можно выбрать несколько',btnKid:'Я ребёнок — начинаем',btnParent:'Я родитель — смотреть итоги',btnVoice:'🎙️ Записать голос',
+    ui:{next:'Далее ←',finish:'Готово 🎉',multiHint:'Можно выбрать несколько',btnKid:'Я ребёнок начинаем',btnParent:'Я родитель смотреть итоги',btnVoice:'🎙️ Записать голос',
       headline:'Без слов.',subline:'Безопасная среда для детей поделиться своим днём с родителями',
       lblWhy:'Почему DayLink?',lblAge:'Сколько тебе лет?',lblGender:'Ты мальчик или девочка?',lblName:'Как тебя зовут?',
       genderM:'👦 Мальчик',genderF:'👧 Девочка',
-      vp1:'<strong>Похоже на игру</strong> — выборы и эмодзи, без письма.',
-      vp2:'<strong>Подходит для аутизма и ADHD</strong> — конкретные и предсказуемые вопросы.',
-      vp3:'<strong>Родитель получает вопросы для разговора</strong> — созданные по ответам ребёнка.',
+      vp1:'<strong>Похоже на игру</strong> выборы и эмодзи, без письма.',
+      vp2:'<strong>Подходит для аутизма и ADHD</strong> конкретные и предсказуемые вопросы.',
+      vp3:'<strong>Родитель получает вопросы для разговора</strong> созданные по ответам ребёнка.',
       namePlaceholder:'Нoa, Йоси, Рина...',ageLabels:['Сад|3–5','1–3 кл.|6–8','4–6 кл.|9–12'],done:'Молодец!',doneSub:'Я отправил маме и папе итог твоего дня.'},
     voiceLang:'ru-RU'
   },
   en:{
-    step:['Station 1 of 5','Station 2 of 5','Station 3 of 5','Station 4 of 5','Station 5 — almost done!'],
+    step:['Station 1 of 5','Station 2 of 5','Station 3 of 5','Station 4 of 5','Station 5 almost done!'],
     sname:['Arrival at school','Recess','Lessons','Playing with friends','End of day'],
     hear:'Listen to question',
     q:{
@@ -814,13 +879,13 @@ const T={
         {e:'🧚',t:'Well done!',s:'Station 1 complete! The fairy is proud of you ✨'},
         {e:'🌟',t:'Great job!',s:'Station 2 done! Two stars for you ⭐⭐'},
         {e:'🦄',t:'Wow!',s:'Station 3 complete! The unicorn is cheering for you 🦄'},
-        {e:'🎊',t:'Amazing!',s:'Station 4 — just one more to go! 🎊'},
+        {e:'🎊',t:'Amazing!',s:'Station 4 just one more to go! 🎊'},
       ],
       f:[
         {e:'🧚',t:'Well done!',s:'Station 1 complete! The fairy is proud of you ✨'},
         {e:'🌟',t:'Great job!',s:'Station 2 done! Two stars for you ⭐⭐'},
         {e:'🦄',t:'Wow!',s:'Station 3 complete! The unicorn is cheering for you 🦄'},
-        {e:'🎊',t:'Amazing!',s:'Station 4 — just one more to go! 🎊'},
+        {e:'🎊',t:'Amazing!',s:'Station 4 just one more to go! 🎊'},
       ]
     },
     answers:{
@@ -830,18 +895,18 @@ const T={
       s4:[{lbl:'Good friend',speak:'I played with a good friend',val:'Good friend'},{lbl:'Everyone',speak:'I played with everyone',val:'Everyone'},{lbl:'I preferred alone',speak:'I preferred to play alone',val:'Preferred alone'},{lbl:'Got angry',speak:'I got angry',val:'Got angry'},{lbl:"Couldn't find anyone",speak:"I couldn't find anyone",val:"Couldn't find anyone"},{lbl:'It was fun!',speak:'It was so much fun',val:'It was fun'}],
       s5:[{lbl:'Something cool!',speak:'Something cool happened',val:'Something cool'},{lbl:'Something sad',speak:'Something sad happened',val:'Something sad'},{lbl:'Most fun ever',speak:'It was the most fun',val:'Most fun'},{lbl:'All good',speak:'Everything is fine',val:'All good'}]
     },
-    ui:{next:'Next ←',finish:'Done 🎉',multiHint:'You can choose more than one',btnKid:'I am the child — Start',btnParent:'I am the parent — See summary',btnVoice:'🎙️ Record parent voice',
+    ui:{next:'Next ←',finish:'Done 🎉',multiHint:'You can choose more than one',btnKid:'I am the child Start',btnParent:'I am the parent See summary',btnVoice:'🎙️ Record parent voice',
       headline:'No words needed.',subline:'A safe space for kids to share their day with parents',
       lblWhy:'Why DayLink?',lblAge:'How old are you?',lblGender:'Are you a boy or girl?',lblName:"What's your name?",
       genderM:'👦 Boy',genderF:'👧 Girl',
-      vp1:'<strong>Feels like a game</strong> — choices and emoji, no writing needed.',
-      vp2:'<strong>Designed for ASD and ADHD</strong> — concrete, predictable questions.',
-      vp3:'<strong>Parents get conversation starters</strong> — generated from their child\'s answers.',
+      vp1:'<strong>Feels like a game</strong> choices and emoji, no writing needed.',
+      vp2:'<strong>Designed for ASD and ADHD</strong> concrete, predictable questions.',
+      vp3:'<strong>Parents get conversation starters</strong> generated from their child\'s answers.',
       namePlaceholder:'Noah, Yosi, Rina...',ageLabels:['Pre-K|3–5','K-3|6–8','Gr.4-6|9–12'],done:'Well done!',doneSub:"I sent mom and dad a summary of your day."},
     voiceLang:'en-US'
   },
   fr:{
-    step:['Étape 1 sur 5','Étape 2 sur 5','Étape 3 sur 5','Étape 4 sur 5','Étape 5 — presque fini!'],
+    step:['Étape 1 sur 5','Étape 2 sur 5','Étape 3 sur 5','Étape 4 sur 5','Étape 5 presque fini!'],
     sname:["Arrivée à l'école",'Récréation','Cours','Jeu avec les amis','Fin de journée'],
     hear:'Écouter la question',
     q:{
@@ -863,13 +928,13 @@ const T={
         {e:'🧚',t:'Bravo!',s:'Étape 1 finie! La fée est fière de toi ✨'},
         {e:'🌟',t:'Super!',s:'Étape 2 faite! Deux étoiles pour toi ⭐⭐'},
         {e:'🦄',t:'Ouah!',s:"Étape 3 terminée! La licorne est contente 🦄"},
-        {e:'🎊',t:'Génial!',s:"Étape 4 — encore une et c'est fini! 🎊"},
+        {e:'🎊',t:'Génial!',s:"Étape 4 encore une et c'est fini! 🎊"},
       ],
       f:[
         {e:'🧚',t:'Bravo!',s:'Étape 1 finie! La fée est fière de toi ✨'},
         {e:'🌟',t:'Super!',s:'Étape 2 faite! Deux étoiles pour toi ⭐⭐'},
         {e:'🦄',t:'Ouah!',s:"Étape 3 terminée! La licorne est contente 🦄"},
-        {e:'🎊',t:'Génial!',s:"Étape 4 — encore une et c'est fini! 🎊"},
+        {e:'🎊',t:'Génial!',s:"Étape 4 encore une et c'est fini! 🎊"},
       ]
     },
     answers:{
@@ -879,19 +944,26 @@ const T={
       s4:[{lbl:'Ami',speak:"J'ai joué avec un ami",val:'Ami'},{lbl:'Tout le monde',speak:"J'ai joué avec tout le monde",val:'Tout le monde'},{lbl:'Seul',speak:"J'ai préféré jouer seul",val:'Seul'},{lbl:'En colère',speak:"J'étais en colère",val:'En colère'},{lbl:'Personne',speak:"Je n'ai trouvé personne",val:'Personne'},{lbl:"C'était fun!",speak:"C'était très fun",val:'Fun'}],
       s5:[{lbl:'Quelque chose de cool!',speak:"Il s'est passé quelque chose de cool",val:'Cool'},{lbl:'Quelque chose de triste',speak:"Il s'est passé quelque chose de triste",val:'Triste'},{lbl:'Le plus fun',speak:"C'était le plus fun",val:'Le plus fun'},{lbl:'Tout va bien',speak:'Tout va bien',val:'Tout va bien'}]
     },
-    ui:{next:'Suivant ←',finish:'Terminé 🎉',multiHint:'Tu peux choisir plusieurs',btnKid:"Je suis l'enfant — On commence",btnParent:'Je suis le parent — Voir le résumé',btnVoice:'🎙️ Enregistrer voix',
+    ui:{next:'Suivant ←',finish:'Terminé 🎉',multiHint:'Tu peux choisir plusieurs',btnKid:"Je suis l'enfant On commence",btnParent:'Je suis le parent Voir le résumé',btnVoice:'🎙️ Enregistrer voix',
       headline:'Sans mots.',subline:'Un espace sûr pour les enfants pour partager leur journée',
       lblWhy:'Pourquoi DayLink?',lblAge:'Quel âge as-tu?',lblGender:'Tu es un garçon ou une fille?',lblName:'Comment tu t\'appelles?',
       genderM:'👦 Garçon',genderF:'👧 Fille',
-      vp1:'<strong>Comme un jeu</strong> — choix et emoji, pas besoin d\'écrire.',
-      vp2:'<strong>Adapté autisme et ADHD</strong> — questions concrètes et prévisibles.',
-      vp3:'<strong>Le parent reçoit des questions</strong> — créées selon les réponses de l\'enfant.',
+      vp1:'<strong>Comme un jeu</strong> choix et emoji, pas besoin d\'écrire.',
+      vp2:'<strong>Adapté autisme et ADHD</strong> questions concrètes et prévisibles.',
+      vp3:'<strong>Le parent reçoit des questions</strong> créées selon les réponses de l\'enfant.',
       namePlaceholder:'Noé, Yosi, Rina...',ageLabels:['Matern.|3–5','CP-CE|6–8','CM|9–12'],done:'Bravo!',doneSub:'J\'ai envoyé le résumé à maman et papa.'},
     voiceLang:'fr-FR'
   }
 };
 
-const MOODS={'שָׂמֵחַ':'😄','בְּסֵדֶר':'🙂','כָּכָה כָּכָה':'😐','עָצוּב':'😔','הָיָה קָשֶׁה':'😣',
+const MOODS={
+  'הָיָה לִי כֵּיף לִפְגֹּשׁ חֲבֵרִים':'😄',
+  'הָיָה לִי קָשֶׁה לְהִפָּרֵד':'😢',
+  'נִכְנַסְתִּי בְּשִׂמְחָה':'😊',
+  'פָּגַשְׁתִּי אֶת הַמּוֹרָה':'🤗',
+  'שִׂיחַקְתִּי לִפְנֵי הַשִּׁעוּר':'🎯',
+  // legacy
+  'שָׂמֵחַ':'😄','בְּסֵדֶר':'🙂','כָּכָה כָּכָה':'😐','עָצוּב':'😔','הָיָה קָשֶׁה':'😣',
   'سعيد':'😄','بخير':'🙂','عادي':'😐','حزين':'😔','صعب':'😣',
   'Счастливый':'😄','Хорошо':'🙂','Так себе':'😐','Грустный':'😔','Трудно':'😣',
   'Happy':'😄','OK':'🙂','So-so':'😐','Sad':'😔','Hard':'😣',
@@ -918,7 +990,7 @@ function pickLang(b){
 document.addEventListener('DOMContentLoaded', ()=>{ applyTranslations(); });
 
 function pickAge(b){
-  document.querySelectorAll('.age-p').forEach(x=>x.classList.remove('sel'));
+  document.querySelectorAll('.age-card').forEach(x=>x.classList.remove('sel'));
   b.classList.add('sel'); st.age=b.dataset.age;
 }
 
@@ -940,7 +1012,7 @@ function applyTranslations(){
     const h=document.getElementById('lbl-hear'+(i===1?'':i)); if(h) h.textContent=t.hear;
   }
 
-  // Answer cards — update via data-key
+  // Answer cards update via data-key
   const ans = t.answers || {};
   document.querySelectorAll('[data-key]').forEach(el => {
     const key = el.dataset.key;
@@ -1004,7 +1076,7 @@ function applyTranslations(){
   document.documentElement.setAttribute('lang', st.lang);
 }
 
-// ── MOBILE AUDIO — ROBUST iOS/Android FIX ────────────
+// ── MOBILE AUDIO ROBUST iOS/Android FIX ────────────
 let _audioUnlocked = false;
 let _audioCtx = null;
 
@@ -1019,7 +1091,7 @@ function unlockAudio(){
     const src = _audioCtx.createBufferSource();
     src.buffer=buf; src.connect(_audioCtx.destination); src.start(0);
   }catch(e){}
-  // Unlock speechSynthesis — must be called in gesture context
+  // Unlock speechSynthesis must be called in gesture context
   if(window.speechSynthesis){
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(' ');
@@ -1040,12 +1112,14 @@ if(window.speechSynthesis){
 
 function fallbackTTS(txt){
   if(!window.speechSynthesis || !txt) return;
-  // iOS fix: resume if paused/stopped
+  // Remove emojis keep only text
+  const clean = txt.replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27FF}\u{2300}-\u{23FF}\u{2B00}-\u{2BFF}⭐★☆✨🌟💫]/gu, '').trim();
+  if(!clean) return;
   try{ if(speechSynthesis.paused) speechSynthesis.resume(); }catch(e){}
   speechSynthesis.cancel();
 
   const langCode = (T[st.lang]||T['he']).voiceLang;
-  const u = new SpeechSynthesisUtterance(txt);
+  const u = new SpeechSynthesisUtterance(clean);
   u.lang = langCode;
   u.rate = 0.82;
   u.pitch = 1.1;
@@ -1092,6 +1166,13 @@ function pC(b,k){
   b.classList.add('sel'); st[k]=b.dataset.v;
   speakText(b.dataset.speak||b.querySelector('.c-lbl').textContent);
   document.getElementById('nx'+k.slice(1)).classList.add('show');
+}
+function pM2(b){
+  b.classList.toggle('sel-m');
+  b.classList.toggle('sel',b.classList.contains('sel-m'));
+  speakText(b.dataset.speak||b.querySelector('.c-lbl').textContent);
+  const vals=[...b.closest('.c-grid').querySelectorAll('.sel-m')].map(x=>x.dataset.v);
+  st.s2 = vals.length ? vals.join(', ') : '';
 }
 function pM(b){
   b.classList.toggle('sel-m');
@@ -1169,9 +1250,116 @@ function finish(){
   }
   spawnParticles();
   setTimeout(()=>w.innerHTML='',5500);
-  speakText((T[st.lang]||T['he']).celebrate[3].t);
+  try{
+    const _t=T[st.lang]||T['he'];
+    const _g=st.gender||'m';
+    const _cArr=(_t.celebrate&&(_t.celebrate[_g]||_t.celebrate['m']))||[];
+    const _cel=_cArr[3];
+    if(_cel&&_cel.t) speakText(_cel.t);
+  }catch(e){}
   goTo('screen-done');
 }
+
+function buildConversationTips(name, mood, recess, lessons, friends, story) {
+  const tips = [];
+  const n = name;
+
+  // ── TIP 1: Based on arrival mood ──
+  if (mood.includes('קָשֶׁה לְהִפָּרֵד')) {
+    tips.push({
+      pre: '🌅 על הבוקר',
+      q: `${n}, מה הכי קשה לך כשאנחנו נפרדים בבוקר?`,
+      tip: `ילדים שקשה להם בפרידה נרגעים יותר כשיש "טקס פרידה" קבוע חיבוק מיוחד, מילת קוד, הבטחה קטנה. נסו להמציא את שלכם יחד.`
+    });
+  } else if (mood.includes('כֵּיף לִפְגֹּשׁ חֲבֵרִים')) {
+    tips.push({
+      pre: '🌅 על הבוקר',
+      q: `עם מי הכי שמחת לפגוש הבוקר? מה עשיתם?`,
+      tip: `כשילד שמח לפגוש חברים זה סימן מצוין לשייכות חברתית. שאלו על חבר ספציפי, לא "חברים" בכלל.`
+    });
+  } else if (mood.includes('שִׂיחַקְתִּי לִפְנֵי')) {
+    tips.push({
+      pre: '🌅 על הבוקר',
+      q: `מה שיחקת לפני השיעור? עם מי?`,
+      tip: `משחק חופשי לפני הלימודים עוזר לוויסות רגשי. אם זה עבד היום כדאי לדאוג שיהיה זמן לכך גם מחר.`
+    });
+  } else {
+    tips.push({
+      pre: '🌅 על הבוקר',
+      q: `ספר לי איך היה לך כשהגעת הבוקר?`,
+      tip: `שאלו על רגע ספציפי, לא "איך היה" בכללי. למשל: "מה היה הדבר הראשון שעשית כשהגעת?"`
+    });
+  }
+
+  // ── TIP 2: Based on lessons ──
+  if (lessons.includes('אָהַבְתִּי')) {
+    tips.push({
+      pre: '📚 על השיעורים',
+      q: `איזה שיעור אהבת היום? מה היה בו מיוחד?`,
+      tip: `כשילד אוהב שיעור חיפשו מה גרם לזה. מורה שהסבירה ממש טוב? נושא מעניין? זה מידע יקר שעוזר להבין את סגנון הלמידה שלו/ה.`
+    });
+  } else if (lessons.includes('הִצְלַחְתִּי')) {
+    tips.push({
+      pre: '📚 על השיעורים',
+      q: `${n} הצליח/ה בתרגיל קשה על מה? אני רוצה לחגוג איתך!`,
+      tip: `חיזוק ספציפי עובד הרבה יותר מ"כל הכבוד". אמרו: "אני גאה בך שלא ויתרת" לא "אתה/את חכם/ה".`
+    });
+  } else if (lessons.includes('לֹא הִתְרַכַּזְתִּי') || lessons.includes('הִתְרַכֵּז')) {
+    tips.push({
+      pre: '📚 על השיעורים',
+      q: `מה הסיח את דעתך היום בכיתה?`,
+      tip: `במקום לשאול "למה לא התרכזת?" שאלו "מה היה קשה?" זה פחות מאשים ומקבל תשובות אמיתיות יותר. גם רעב, עייפות ומחשבות מפריעות לריכוז.`
+    });
+  } else if (lessons.includes('לֹא הֵבַנְתִּי') || lessons.includes('שִׁעוּר שֶׁלֹּא')) {
+    tips.push({
+      pre: '📚 על השיעורים',
+      q: `היה שיעור שלא הבנת? בוא/י נעבור על זה ביחד 10 דקות זה מספיק.`,
+      tip: `הצעה לעזור ביחד, בלי שיפוטיות, בונה ביטחון עצמי. הימנעו מ"זה פשוט" מה שפשוט לכם, לא בהכרח פשוט להם.`
+    });
+  } else {
+    tips.push({
+      pre: '📚 על השיעורים',
+      q: `מה למדת היום שהפתיע אותך?`,
+      tip: `שאלה על הפתעה פותחת שיחה מעניינת יותר משאלה על "מה למדת". ילדים נזכרים טוב יותר בדברים שעוררו תגובה רגשית.`
+    });
+  }
+
+  // ── TIP 3: Based on friends / end of day ──
+  if (friends && friends.includes('כָּעַסְתִּי')) {
+    tips.push({
+      pre: '👫 על החברים',
+      q: `${n} כעס/ה על מישהו היום רוצה לספר מה קרה?`,
+      tip: `אל תמהרו לפתור. קודם הקשיבו ואמרו "אני מבין/ה שזה כעיס". ילדים שמרגישים שנשמעים מדברים יותר.`
+    });
+  } else if (friends && (friends.includes('לֹא מָצָאתִי') || friends.includes('עָדַפְתִּי'))) {
+    tips.push({
+      pre: '👫 על החברים',
+      q: `היום בילית יותר לבד איך הרגשת עם זה?`,
+      tip: `חשוב להבדיל: יש ילדים שבוחרים לבד ומרגישים טוב עם זה, ויש כאלו שבודדים ובלתי רצויים. שאלו: "בחרת לבד, או לא מצאת חבר?" התשובה מלמדת הרבה.`
+    });
+  } else if (story === 'קָרָה מַשֶּׁהוּ מַגְנִיב') {
+    tips.push({
+      pre: '✨ משהו לספר',
+      q: `${n} רוצה לספר משהו מגניב אני כולי אוזן, תן/תני לי לנחש!`,
+      tip: `לנחש לפני שהם מספרים יוצר ריגוש וצחוק ומפתח את השיחה. "בטח קשור לכיתה... לא? אולי לחבר...?"`
+    });
+  } else if (story === 'קָרָה מַשֶּׁהוּ עָצוּב') {
+    tips.push({
+      pre: '💙 משהו עצוב',
+      q: `${n} רוצה לספר משהו שעצב אותו/אותה אני כאן ורוצה לשמוע.`,
+      tip: `אל תמהרו לפתור או להרגיע. המשפט החזק ביותר שתוכלו לומר: "זה נשמע ממש קשה, אני שמח/ה שסיפרת לי." זה מספיק.`
+    });
+  } else {
+    tips.push({
+      pre: '👫 על החברים',
+      q: `מה הדבר הכי מצחיק שקרה היום עם החברים?`,
+      tip: `שאלה על צחוק ומצחיק מביאה אנרגיה טובה לשיחה ועוזרת לילדים לזכור רגעים חיוביים מהיום.`
+    });
+  }
+
+  return tips;
+}
+
 
 // ── PARENT ──
 function showParent(){
@@ -1189,26 +1377,20 @@ function showParent(){
   document.getElementById('ins-stack').innerHTML=[
     {lbl:'מַצַּב רוּחַ כְּלָלִי',val:`${name} הִגִּיעַ/ה עִם מַצַּב רוּחַ: ${mood}`},
     {lbl:'מַה קָרָה בַּהַפְסָקָה',val:recess},
-    {lbl:'אֵיךְ הָיוּ הַשִּׁעוּרִים',val:lessons+(lessons==='הִצְלַחְתִּי'?' — מַגִּיעַ חִיזּוּק!':lessons==='לֹא הֵבַנְתִּי'?' — כְּדַאי לִשְׁאֹל':lessons==='הָיָה קָשֶׁה'?' — שָׁוֶה לְדַבֵּר':'')},
+    {lbl:'אֵיךְ הָיוּ הַשִּׁעוּרִים',val:lessons+(lessons==='הִצְלַחְתִּי'?' מַגִּיעַ חִיזּוּק!':lessons==='לֹא הֵבַנְתִּי'?' כְּדַאי לִשְׁאֹל':lessons==='הָיָה קָשֶׁה'?' שָׁוֶה לְדַבֵּר':'')},
   ].map(x=>`<div class="ins-card"><div class="ins-label">${x.lbl}</div><div class="ins-value">${x.val}</div></div>`).join('');
 
-  const qs=[];
-  if(recess==='יָשַׁבְתִּי לְבַד') qs.push({pre:'עַל הַהַפְסָקָה',q:`שַׂמְתִּי לֵב שֶׁ${name} יָשַׁב/ה לְבַד בַּהַפְסָקָה — מַה עָשִׂיתָ?`});
-  else if(recess==='קָרָה מַשֶּׁהוּ') qs.push({pre:'עַל הַהַפְסָקָה',q:`${name} סִימֵּן/ה שֶׁקָּרָה מַשֶּׁהוּ מְיֻחָד — מַה הָיָה?`});
-  else qs.push({pre:'עַל הַהַפְסָקָה',q:`אֵיךְ הָיְתָה הַהַפְסָקָה? עָשִׂיתָ ${recess}?`});
-
-  if(lessons==='הִצְלַחְתִּי') qs.push({pre:'עַל הַשִּׁעוּרִים',q:`${name} הִצְלִיחַ/ה הַיּוֹם — עַל מַה? אֲנִי רוֹצֶה לִשְׁמֹעַ!`});
-  else if(lessons==='לֹא הֵבַנְתִּי') qs.push({pre:'עַל הַשִּׁעוּרִים',q:`הָיָה שִׁעוּר שֶׁלֹּא הֵבַנְתָּ? אוּלַי נַעֲבֹר עָלָיו יַחַד?`});
-  else if(lessons==='הָיָה קָשֶׁה') qs.push({pre:'עַל הַשִּׁעוּרִים',q:`מַה הָיָה הֲכִי קָשֶׁה? אֲנִי כָּאן אִם צָרִיךְ עֶזְרָה.`});
-  else qs.push({pre:'עַל הַשִּׁעוּרִים',q:`מַה לָמַדְתָּ הַיּוֹם? יֵשׁ מַשֶּׁהוּ לְשַׁתֵּף?`});
-
-  if(story==='קָרָה מַשֶּׁהוּ מְגַנִּיב') qs.push({pre:'מַשֶּׁהוּ לְסַפֵּר',q:`${name} רוֹצֶה לְסַפֵּר מַשֶּׁהוּ מְגַנִּיב! מַה קָרָה?`});
-  else if(story==='קָרָה מַשֶּׁהוּ עָצוּב') qs.push({pre:'מַשֶּׁהוּ לְסַפֵּר',q:`${name} סִימֵּן/ה שֶׁקָּרָה מַשֶּׁהוּ עָצוּב — אֲנִי כָּאן.`});
-  else if(friends&&friends.includes('כָּעַסְתִּי')) qs.push({pre:'עַל הַחֲבֵרִים',q:`${name} צִיֵּן/ה שֶׁכָּעַס/ה — רוֹצֶה לְסַפֵּר מַה קָרָה?`});
-  else if(friends&&friends.includes('לֹא מָצָאתִי')) qs.push({pre:'עַל הַחֲבֵרִים',q:`הַיּוֹם הָיָה קְצָת בּוֹדֵד? בּוֹא/י נְדַבֵּר עַל זֶה.`});
-  else qs.push({pre:'עַל הַחֲבֵרִים',q:`עִם מִי הֲכִי כֵּיף הָיָה לְךָ הַיּוֹם?`});
-
-  document.getElementById('q-stack').innerHTML=qs.map(x=>`<div class="q-card"><div class="q-prefix">${x.pre}</div><div class="q-text">${x.q}</div></div>`).join('');
+  // Build rich conversation tips
+  const tips = buildConversationTips(name, mood, recess, lessons, friends, story);
+  document.getElementById('q-stack').innerHTML = tips.map(x => `
+    <div class="q-card" style="margin-bottom:4px;">
+      <div class="q-prefix">${x.pre}</div>
+      <div class="q-text" style="font-weight:700;color:var(--dark);margin-bottom:6px;">${x.q}</div>
+      <div style="background:rgba(107,72,240,.07);border-radius:10px;padding:8px 10px;margin-top:6px;">
+        <span style="font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--purple);display:block;margin-bottom:3px;">💡 טיפ להורה</span>
+        <span style="font-size:12px;color:rgba(43,26,138,.7);line-height:1.6;">${x.tip}</span>
+      </div>
+    </div>`).join('');
 
   const tl=[
     {station:'הַגָּעָה',emoji:'🏫',answer:mood},
@@ -1278,7 +1460,7 @@ openDB().then(async () => {
   }
   updateSaveStatus();
 }).catch(() => {
-  console.warn('IndexedDB not available — recordings will not persist');
+  console.warn('IndexedDB not available recordings will not persist');
 });
 
 function updateSaveStatus() {
@@ -1365,7 +1547,7 @@ function getRecordableItems() {
   const genders  = ['m','f'];
   const genderLabels = {'m':'זָכָר','f':'נְקֵבָה'};
 
-  // Questions — all ages x all genders
+  // Questions all ages x all genders
   ages.forEach(age => {
     genders.forEach(g => {
       const qs = (t.q[age]?.[g]) || (t.q[age]?.['m']) || [];
@@ -1374,7 +1556,7 @@ function getRecordableItems() {
         items.push({
           key,
           label: qs[i] || '',
-          section: `שְׁאֵלוֹת — ${ageLabels[age]} — ${genderLabels[g]}`
+          section: `שְׁאֵלוֹת ${ageLabels[age]} ${genderLabels[g]}`
         });
       });
     });
@@ -1392,19 +1574,19 @@ function getRecordableItems() {
     }
   });
 
-  // Celebration messages — both genders
+  // Celebration messages both genders
   genders.forEach(g => {
     const cArr = t.celebrate[g] || t.celebrate['m'] || [];
     cArr.forEach((cel, i) => {
       items.push({
         key: `cel_title_${g}_${i}`,
         label: cel.t + ' (כּוֹתֶרֶת)',
-        section: `הוֹדָעוֹת הַצְלָחָה — ${genderLabels[g]} — תַּחֲנָה ${i+1}`
+        section: `הוֹדָעוֹת הַצְלָחָה ${genderLabels[g]} תַּחֲנָה ${i+1}`
       });
       items.push({
         key: `cel_sub_${g}_${i}`,
         label: cel.s + ' (תֵּיאוּר)',
-        section: `הוֹדָעוֹת הַצְלָחָה — ${genderLabels[g]} — תַּחֲנָה ${i+1}`
+        section: `הוֹדָעוֹת הַצְלָחָה ${genderLabels[g]} תַּחֲנָה ${i+1}`
       });
     });
   });
@@ -1519,7 +1701,7 @@ async function playAllRecordings() {
     const item = toPlay[i];
     const pct  = Math.round(((i) / toPlay.length) * 100);
     bar.style.width  = pct + '%';
-    curr.textContent = `${i + 1} / ${toPlay.length} — ${item.label}`;
+    curr.textContent = `${i + 1} / ${toPlay.length} ${item.label}`;
 
     // Highlight active row
     document.querySelectorAll('.vs-item').forEach(r => r.style.background = '');
@@ -1661,7 +1843,7 @@ speakText = function(txt) {
     // check answer key
     const ak = 'ans_' + txt;
     if (recordings[ak]) { new Audio(recordings[ak].url).play().catch(()=>{}); return; }
-    // check question keys — age+gender aware
+    // check question keys age+gender aware
     for (let i = 0; i < 5; i++) {
       const el = document.getElementById('q' + (i+1));
       if (el && el.textContent.trim() === txt.trim()) {
@@ -1695,5 +1877,7 @@ goTo = function(id) {
   if (id === 'screen-voice') buildVoiceStudio();
 };
 </script>
+
+
 </body>
 </html>
